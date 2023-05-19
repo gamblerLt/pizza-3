@@ -1,4 +1,4 @@
 package lt.code.academy.pizza.pizzas.dto;
 
-public class pizza {
+public class Pizza {
 }
