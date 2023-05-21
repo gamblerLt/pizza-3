@@ -27,10 +27,6 @@ public class PizzaService {
                 .map(Pizza::convert)
                 .toList();
     }
-    public Page<Pizza> getPizzaByPage(Pageable pageable) {
-        return pizzaRepository.findAll(pageable)
-                .map(Pizza::convert);
-    }
 
     public Pizza getPizza(UUID id) {
         return pizzaRepository.findById(id)
@@ -46,31 +42,11 @@ public class PizzaService {
         pizzaRepository.deleteById(id);
     }
 
-    //public List<Pizza> getPizzasByTitleBySizeAndByPrice
+    public List<Pizza> search (String text) {
+        return pizzaRepository.findAllByTitleContainsorDescriptionContains(text, text)
+                .stream()
+                .map(Pizza::convert)
+                .toList();
+    }
 }
 
-/*public List<Product> getProductsByCategory(String category) {
-		return productRepository.findAllByCategoryContainsOrNameContainsOrDescriptionContains(category, category, category)
-				.stream()
-				.map(Product::convert)
-				.toList();
-	}
-
-	public List<Product> getProductsByCategoryAndPrice(String category, BigDecimal price) {
-		return productRepository.getProductsByCategoryAndPrice(category ,price)
-				.stream()
-				.map(Product::convert)
-				.toList();
-	}
-
-	public List<Product> getFilteredProducts(String category, BigDecimal price) {
-		if(category != null && !category.isBlank()) {
-
-			if(price!= null && !price.equals(0)) {
-				return getProductsByCategoryAndPrice(category, price);
-			}
-
-			return getProductsByCategory(category);
-		}
-
-		return getProduc*/
