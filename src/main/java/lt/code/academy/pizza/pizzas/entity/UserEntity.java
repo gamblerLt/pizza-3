@@ -30,12 +30,20 @@ public class UserEntity {
     @Column(nullable = false, length = 255)
     private String address;
 
+    @Column(nullable = false, length = 255)
+    private String email;
+
+    @Column(nullable = false, length = 255)
+    private String password;
+
     public static UserEntity convert(User user) {
         return new UserEntity(
                 user.getId(),
                 user.getName(),
                 user.getPhone(),
-                user.getAddress()
+                user.getAddress(),
+                user.getEmail(),
+                user.getPassword()
         );
     }
 
