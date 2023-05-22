@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!--<head th:replace="~{fragments/fragments :: head(#{lt.code.academy.eshop.products.title})}"></head>-->
+<body>
+<nav th:replace="~{fragments/fragments :: navigation}"></nav>
+<div class="container">
+    <div class="language-selector-width">
+        <select id="language-switcher"
+                class="form-select form-select-sm"
+                aria-label=".form-select-sm example">
+            <option selected>Language:</option>
+            <option value="EN">EN</option>
+            <option value="LT">LT</option>
+        </select>
+    </div>
+
+    <div sec:authorize="isAuthenticated()"
+         th:text="${#authentication.principal.id}"></div>
+
+    <div th:if="${not pageOfProducts.hasContent()}"
+         class="alert alert-primary"
+         role="alert"
+         th:text="#{lt.code.academy.eshop.products.empty.message}"></div>
+    <div th:if="${pageOfProducts.hasContent()}">
+        <table class="table table-striped table-hover">
+            <thead class="table-primary">
+            <tr>
+                <th th:replace="~{fragments/fragments :: sortableColumnHeader('col-2', 'name', #{lt.code.academy.eshop.products.table.name}, 'bi-sort-alpha-down', 'bi-sort-alpha-up-alt')}"></th>
+                <th th:replace="~{fragments/fragments :: sortableColumnHeader('col-2', 'category', #{lt.code.academy.eshop.products.table.category}, 'bi-sort-alpha-down', 'bi-sort-alpha-up-alt')}"></th>
+                <th th:replace="~{fragments/fragments :: sortableColumnHeader('col-6', 'description', #{lt.code.academy.eshop.products.table.description}, 'bi-sort-alpha-down', 'bi-sort-alpha-up-alt')}"></th>
+                <th th:replace="~{fragments/fragments :: sortableColumnHeader('col-1', 'quantity', #{lt.code.academy.eshop.products.table.quantity}, 'bi-sort-numeric-down', 'bi-sort-numeric-up-alt')}"></th>
+                <th th:replace="~{fragments/fragments :: sortableColumnHeader('col-1', 'price', #{lt.code.academy.eshop.products.table.price}, 'bi-sort-numeric-down', 'bi-sort-numeric-up-alt')}"></th>
+                <th sec:authorize="hasRole('ADMIN')"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="product: ${pageOfProducts.content}">
+                <td>
+                    <a th:href="@{/public/products/{id}(id=${product.id})}"
+                       th:text="${product.name}"></a>
+                </td>
+                <td th:text="${product.category}"></td>
+                <td th:text="${product.description}"></td>
+                <td th:text="${product.quantity}"></td>
+                <td th:text="${product.price}"></td>
+                <td sec:authorize="hasRole('ADMIN')">
+                    <a th:href="@{/products/{id}/delete(id=${product.id})}"
+                       class="text-danger">
+                        <i class="bi bi-trash3"></i>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="row">
+            <div class="col-2"></div>
+            <nav aria-label="Page navigation example"
+                 class="col-8">
+                <ul class="pagination justify-content-center"
+                    th:with="sort=${pageOfProducts.sort.toList().get(0)}">
+                    <li class="page-item"
+                        th:classappend="${pageOfProducts.number eq 0 ? 'disabled': ''}">
+                        <a class="page-link"
+                           th:href="@{/public/products(page=${pageOfProducts.number} - 1, sort=${sort.property + ',' + sort.direction + ',ignorecase'})}"
+                           aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"
+                        th:each="page : ${#numbers.sequence(0, pageOfProducts.totalPages - 1)}"
+                        th:classappend="${page eq pageOfProducts.number ? 'active' : ''}">
+							<span class="page-link"
+                                  th:if="${page eq pageOfProducts.number}"
+                                  th:text="${page} + 1"></span>
+                        <a class="page-link"
+                           th:if="${page ne pageOfProducts.number}"
+                           th:href="@{/public/products(page=${page}, sort=${sort.property + ',' + sort.direction + ',ignorecase'})}"
+                           th:text="${page} + 1"></a>
+                    </li>
+                    <li class="page-item"
+                        th:classappend="${pageOfProducts.number eq pageOfProducts.totalPages - 1 ? 'disabled': ''}">
+                        <a class="page-link"
+                           th:href="@{/public/products(page=${pageOfProducts.number} + 1, sort=${sort.property + ',' + sort.direction + ',ignorecase'})}"
+                           aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="col-2 text-end">
+                <span th:text="#{lt.code.academy.eshop.products.paginator.total.products(${pageOfProducts.totalElements})}"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="~{fragments/fragments :: footer}"></footer>
+</body>
+</html>
