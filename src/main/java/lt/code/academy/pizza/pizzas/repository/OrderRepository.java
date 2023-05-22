@@ -8,5 +8,5 @@ import java.util.List;
 import java.util.UUID;
 
 public interface OrderRepository extends JpaRepository<OrderEntity, UUID> {
-    List<OrderEntity>findAllByQuantityByPrice(Integer quantity, BigDecimal price);
+    //List<OrderEntity>findAllByQuantityByPrice(Integer quantity, BigDecimal price);
 }

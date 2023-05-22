@@ -18,10 +18,22 @@ import java.util.UUID;
 @Entity
 @Table(name = "pizzas")
 public class PizzaEntity {
+
+    /*@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;*/
+
+    /*@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(updatable = false, columnDefinition = "BINARY(16)")
+    private UUID id;*/
+
     @Id
-    @GeneratedValue
-    @Column(updatable = false)
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(updatable = false, columnDefinition = "BINARY(16)")
     private UUID id;
+
+
 
     @Column(nullable = false, length = 255)
     private String title;
@@ -49,4 +61,5 @@ public class PizzaEntity {
         );
     }
 }
+
 

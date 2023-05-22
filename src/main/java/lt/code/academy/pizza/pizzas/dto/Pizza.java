@@ -10,6 +10,7 @@ import lt.code.academy.pizza.pizzas.entity.PizzaEntity;
 import java.math.BigDecimal;
 import java.util.UUID;
 
+
 @Setter
 @Getter
 @AllArgsConstructor
@@ -39,7 +40,6 @@ public class Pizza {
                 pizzaEntity.getDescription(),
                 pizzaEntity.getPicture(),
                 pizzaEntity.getPrice()
-
         );
     }
 }
