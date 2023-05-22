@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lt.code.academy.pizza.pizzas.entity.PizzaEntity;
 import lt.code.academy.pizza.pizzas.entity.UserEntity;
 
 import java.util.UUID;

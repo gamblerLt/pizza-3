@@ -48,26 +48,4 @@ public class UserEntity {
                 user.getPassword()
         );
     }
-
-
 }
-
-
-/*public class User {
-    private UUID id;
-    @NotBlank
-    private String name;
-    @NotBlank
-    private String phone;
-    @NotBlank
-    private String address;
-
-    public static User convert(UserEntity userEntity) {
-        return new User(
-                .puserEntity.getId(),
-        .userEntity.getName(),
-        .userEntity..getAddress()
-        );
-    }
-
-}*/
