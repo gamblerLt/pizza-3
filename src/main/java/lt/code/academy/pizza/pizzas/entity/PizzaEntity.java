@@ -19,15 +19,6 @@ import java.util.UUID;
 @Table(name = "pizzas")
 public class PizzaEntity {
 
-    /*@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;*/
-
-    /*@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(updatable = false, columnDefinition = "BINARY(16)")
-    private UUID id;*/
-
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(updatable = false, columnDefinition = "BINARY(16)")

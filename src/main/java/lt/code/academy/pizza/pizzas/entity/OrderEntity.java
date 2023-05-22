@@ -1,7 +1,6 @@
 package lt.code.academy.pizza.pizzas.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,9 +17,10 @@ import java.util.UUID;
 @Entity
 @Table(name = "orders")
 public class OrderEntity {
+
     @Id
-    @GeneratedValue
-    @Column(updatable = false)
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(updatable = false, columnDefinition = "BINARY(16)")
     private UUID id;
 
     @Column(nullable = false)

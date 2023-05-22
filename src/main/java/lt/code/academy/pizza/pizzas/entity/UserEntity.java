@@ -16,9 +16,11 @@ import java.util.UUID;
 @Entity
 @Table(name = "users")
 public class UserEntity {
+
+
     @Id
-    @GeneratedValue
-    @Column(updatable = false)
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(updatable = false, columnDefinition = "BINARY(16)")
     private UUID id;
 
     @Column(nullable = false, length = 255)
