@@ -2,7 +2,7 @@ package lt.code.academy.pizza.pizzas.service;
 
 import lt.code.academy.pizza.pizzas.dto.Order;
 import lt.code.academy.pizza.pizzas.entity.OrderEntity;
-import lt.code.academy.pizza.pizzas.exception.OrnerNotExistRuntimeException;
+import lt.code.academy.pizza.pizzas.exception.OrderNotExistRuntimeException;
 import lt.code.academy.pizza.pizzas.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +31,7 @@ public class OrderService {
     public Order getOrder(UUID id) {
         return orderRepository.findById(id)
                 .map(Order::convert)
-                .orElseThrow(() -> new OrnerNotExistRuntimeException(id));
+                .orElseThrow(() -> new OrderNotExistRuntimeException(id));
     }
 
     public void updateOrder(Order order) {

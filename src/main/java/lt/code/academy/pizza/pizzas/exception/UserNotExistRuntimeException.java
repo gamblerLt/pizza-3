@@ -4,9 +4,8 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import java.util.UUID;
-
 @Getter
 @RequiredArgsConstructor
-public class OrnerNotExistRuntimeException extends RuntimeException{
+public class UserNotExistRuntimeException extends RuntimeException{
     private final UUID id;
 }
