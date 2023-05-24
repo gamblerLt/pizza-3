@@ -1,16 +1,16 @@
-import {ErrorMessage, Field, Form, Formik} from "formik";
-import {Button, CircularProgress, FormControl, FormHelperText, Stack, TextField, Typography} from "@mui/material";
+import {Form, Formik} from "formik";
+import {Button, CircularProgress, FormControl, FormHelperText, Stack, Typography} from "@mui/material";
 import * as Yup from 'yup';
 import FormTextInput from "./FormTextInput";
 
-const productValidationSchema = Yup.object().shape(
+const pizzaValidationSchema = Yup.object().shape(
     {
         name: Yup.string()
             .min(5, 'Name must be more then 5 symbols')
             .max(10, 'Name must be less then 10 symbols')
             .required('Name is required'),
-        category: Yup.string()
-            .required('Category is required'),
+        size: Yup.string()
+            .required('Size is required'),
         description: Yup.string()
             .required('Description is required'),
         quantity: Yup.number()
@@ -29,7 +29,7 @@ const Pizza = () => (
     <Formik
         initialValues={{
             name: '',
-            category: '',
+            size: '',
             description: '',
             quantity: '',
             price: ''
@@ -45,26 +45,27 @@ const Pizza = () => (
             }, 5000);
         }}
 
-        validationSchema={productValidationSchema}
+        validationSchema={pizzaValidationSchema}
     >
         {props => (
             <Form>
                 <Stack spacing={2} direction="column">
+                    <Typography variant="h6" component="h6">Create a Pizza</Typography>
                     <FormTextInput error={props.touched.name && !!props.errors.name}
                                    name="name"
-                                   label="Product name"/>
-                    <FormTextInput error={props.touched.category && !!props.errors.category}
-                                   name="category"
-                                   label="Product category"/>
+                                   label="Pizza title"/>
+                    <FormTextInput error={props.touched.size && !!props.errors.size}
+                                   name="size"
+                                   label="Pizza size"/>
                     <FormTextInput error={props.touched.description && !!props.errors.description}
                                    name="description"
-                                   label="Product description"/>
+                                   label="Pizza description"/>
                     <FormTextInput error={props.touched.quantity && !!props.errors.quantity}
                                    name="quantity"
-                                   label="Product quantity"/>
+                                   label="Pizza quantity"/>
                     <FormTextInput error={props.touched.price && !!props.errors.price}
                                    name="price"
-                                   label="Product price"/>
+                                   label="Prizza price"/>
                 </Stack>
                 <Typography sx={{textAlign: 'right', mt: 2}}>
                     {
