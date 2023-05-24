@@ -30,7 +30,7 @@ const Footer = () => {
         >
             <Container maxWidth="sm">
                 <Typography variant="body1" align="center">
-                    My sticky footer can be found here.
+                   (C) All Rights Lost
                 </Typography>
                 <Copyright />
             </Container>
