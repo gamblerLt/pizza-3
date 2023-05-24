@@ -10,7 +10,7 @@ const Content = () => {
                            flexDirection: 'column',
                            minHeight: 'calc(100vh - 157px)',
                        }}>
-                cia bus musu kontentas
+               <p>Cia bus turinys</p>
             </Container>
         </>
     );
