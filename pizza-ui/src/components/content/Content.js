@@ -1,4 +1,5 @@
 import {Container} from "@mui/material";
+import Pizza from "../forms/Pizza";
 
 const Content = () => {
 
@@ -10,7 +11,8 @@ const Content = () => {
                            flexDirection: 'column',
                            minHeight: 'calc(100vh - 157px)',
                        }}>
-               <p>Cia bus turinys</p>
+               <Pizza/>
+
             </Container>
         </>
     );
