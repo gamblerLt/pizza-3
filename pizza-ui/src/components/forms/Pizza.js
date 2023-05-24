@@ -7,6 +7,11 @@ const productValidationSchema = Yup.object().shape(
         name: Yup.string()
             .min(5, 'Name must be more then 5 symbols')
             .max(10, 'Name must be less then 10 symbols')
+            .required(),
+
+        category: Yup.string()
+            .min(5, 'Kategorija must be more then 5 symbols')
+            .max(10, 'Kategorija must be less then 10 symbols')
             .required()
     }
 )
@@ -44,6 +49,7 @@ const Pizza = () => (
                            as={TextField}
                            label="Category"
                            variant="outlined"/>
+                    <ErrorMessage name="category" component="div"/>
                 </Stack>
                 {
                     props.isSubmitting ? <CircularProgress/> : <button type="submit">Submit</button>
