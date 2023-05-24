@@ -1,27 +1,41 @@
-import React from 'react';
-import { Typography, Link, Container } from '@mui/material';
+import {Box, Container, Link, Typography} from "@mui/material";
+
+function Copyright(props) {
+    return (
+        <Typography variant="body2" color="text.secondary" align="center" {...props}>
+            {'Copyright © '}
+            <Link color="inherit" href="https://mui.com/">
+                Your Website
+            </Link>{' '}
+            {new Date().getFullYear()}
+            {'.'}
+        </Typography>
+    );
+}
 
 const Footer = () => {
+
     return (
-        <footer>
+        <Box
+            component="footer"
+            sx={{
+                py: 3,
+                px: 2,
+                mt: 'auto',
+                backgroundColor: (theme) =>
+                    theme.palette.mode === 'light'
+                        ? theme.palette.grey[200]
+                        : theme.palette.grey[800],
+            }}
+        >
             <Container maxWidth="sm">
-        <Typography variant="body2" color="textSecondary" align="center">
-        {'(C) All rights reserved '}
-        <Link color="inherit" href="/index.html">
-        The Best Pizza In The World!
-    </Link>
-    {' | '}
-    <Link color="inherit" href="https://en.wikipedia.org/wiki/Terms_of_service">
-        Terms of Service
-    </Link>
-    {' | '}
-    <Link color="inherit" href="https://en.wikipedia.org/wiki/Privacy_policy">
-        Privacy Policy
-    </Link>
-    </Typography>
-    </Container>
-    </footer>
-)
+                <Typography variant="body1" align="center">
+                    My sticky footer can be found here.
+                </Typography>
+                <Copyright />
+            </Container>
+        </Box>
+    );
 }
 
 export default Footer;

@@ -1,21 +1,46 @@
-import { AppBar, Toolbar, Typography, Button } from '@mui/material';
-
+import {AppBar, Button, Link, Toolbar, Typography} from "@mui/material";
 
 const Header = () => {
 
     return (
-        <AppBar position="static">
-            <Toolbar>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    Pizza UI
+        <AppBar
+            position="static"
+            color="default"
+            elevation={0}
+            sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}>
+            <Toolbar sx={{ flexWrap: 'wrap' }}>
+                <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
+                    Company name
                 </Typography>
-                <Button color="inherit">Home</Button>
-                <Button color="inherit">Menu</Button>
-                <Button color="inherit">Order</Button>
-                <Button color="inherit">Contact</Button>
+                <nav>
+                    <Link
+                        variant="button"
+                        color="text.primary"
+                        href="#"
+                        sx={{ my: 1, mx: 1.5 }}>
+                        Features
+                    </Link>
+                    <Link
+                        variant="button"
+                        color="text.primary"
+                        href="#"
+                        sx={{ my: 1, mx: 1.5 }}>
+                        Enterprise
+                    </Link>
+                    <Link
+                        variant="button"
+                        color="text.primary"
+                        href="#"
+                        sx={{ my: 1, mx: 1.5 }}>
+                        Support
+                    </Link>
+                </nav>
+                <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+                    Login
+                </Button>
             </Toolbar>
         </AppBar>
     );
-};
+}
 
 export default Header;
