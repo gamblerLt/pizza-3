@@ -5,18 +5,18 @@ import FormTextInput from "./FormTextInput";
 
 const pizzaValidationSchema = Yup.object().shape(
     {
-        name: Yup.string()
+        title: Yup.string()
             .min(5, 'Pizza title must be more then 5 symbols')
             .max(10, 'Pizza title must be less then 20 symbols')
             .required('Pizza title is required'),
         size: Yup.string()
             .required('Pizza size is required'),
         description: Yup.string()
+            .min(15, 'Description must be more then 15 symbols')
+            .max(50, 'Description  must be less then 50 symbols')
             .required('Description is required'),
-        quantity: Yup.number()
-            .typeError('Quantity must be a number')
-            .positive('Quantity must be bigger then 0')
-            .required('Quantity is required'),
+        picture: Yup.string(),
+           /* .required('Quantity is required'),*/
         price: Yup.number()
             .typeError('Price must be a number')
             .positive('Price must be bigger then 0')
@@ -28,10 +28,10 @@ const Pizza = () => (
 
     <Formik
         initialValues={{
-            name: '',
+            title: '',
             size: '',
             description: '',
-            quantity: '',
+            picture: '',
             price: ''
         }}
 
@@ -51,8 +51,8 @@ const Pizza = () => (
             <Form>
                 <Stack spacing={2} direction="column">
                     <Typography variant="h6" component="h6">Create a Pizza</Typography>
-                    <FormTextInput error={props.touched.name && !!props.errors.name}
-                                   name="name"
+                    <FormTextInput error={props.touched.title && !!props.errors.title}
+                                   name="title"
                                    label="Pizza title"/>
                    {/* <FormTextInput error={props.touched.size && !!props.errors.size}
                                    name="size"
@@ -73,9 +73,9 @@ const Pizza = () => (
                     <FormTextInput error={props.touched.description && !!props.errors.description}
                                    name="description"
                                    label="Pizza description"/>
-                    <FormTextInput error={props.touched.quantity && !!props.errors.quantity}
-                                   name="quantity"
-                                   label="Pizza quantity"/>
+                    <FormTextInput error={props.touched.picture && !!props.errors.picture}
+                                   name="picture"
+                                   label="Pizza picture"/>
                     <FormTextInput error={props.touched.price && !!props.errors.price}
                                    name="price"
                                    label="Prizza price"/>
