@@ -44,7 +44,7 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-  /*  public List<User> search(String text)
+  /*  public List<UserRegistration> search(String text)
        return userRep...
 
     {

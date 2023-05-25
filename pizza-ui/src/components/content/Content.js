@@ -1,6 +1,8 @@
 import {Container} from "@mui/material";
 import Pizza from "../forms/Pizza";
-import User from "../forms/User";
+import UserRegistration from "../forms/UserRegistration";
+import UserLogin from "../forms/UserLogin";
+import Order from "../forms/Order";
 
 const Content = () => {
 
@@ -15,7 +17,9 @@ const Content = () => {
                        }}>
 
                <Pizza/>
-                <User/>
+                <UserRegistration/>
+                <UserLogin/>
+                <Order/>
 
 
             </Container>

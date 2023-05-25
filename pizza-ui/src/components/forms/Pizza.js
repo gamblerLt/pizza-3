@@ -1,16 +1,16 @@
-import {Form, Formik} from "formik";
-import {Button, CircularProgress, FormControl, FormHelperText, Stack, Typography} from "@mui/material";
+import { Formik, Form, Field } from 'formik';
+import { Stack, Typography, CircularProgress, Button, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import * as Yup from 'yup';
 import FormTextInput from "./FormTextInput";
 
 const pizzaValidationSchema = Yup.object().shape(
     {
         name: Yup.string()
-            .min(5, 'Name must be more then 5 symbols')
-            .max(10, 'Name must be less then 10 symbols')
-            .required('Name is required'),
+            .min(5, 'Pizza title must be more then 5 symbols')
+            .max(10, 'Pizza title must be less then 20 symbols')
+            .required('Pizza title is required'),
         size: Yup.string()
-            .required('Size is required'),
+            .required('Pizza size is required'),
         description: Yup.string()
             .required('Description is required'),
         quantity: Yup.number()
@@ -54,9 +54,22 @@ const Pizza = () => (
                     <FormTextInput error={props.touched.name && !!props.errors.name}
                                    name="name"
                                    label="Pizza title"/>
-                    <FormTextInput error={props.touched.size && !!props.errors.size}
+                   {/* <FormTextInput error={props.touched.size && !!props.errors.size}
                                    name="size"
-                                   label="Pizza size"/>
+                                   label="Pizza size"/>*/}
+                    <FormControl error={props.touched.size && !!props.errors.size} fullWidth>
+                        <InputLabel id="size-label">Pizza size</InputLabel>
+                        <Field
+                            as={Select}
+                            labelId="size-label"
+                            id="size"
+                            name="size"
+                        >
+                            <MenuItem value="L">L</MenuItem>
+                            <MenuItem value="XL">XL</MenuItem>
+                        </Field>
+                    </FormControl>
+
                     <FormTextInput error={props.touched.description && !!props.errors.description}
                                    name="description"
                                    label="Pizza description"/>

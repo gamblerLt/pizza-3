@@ -9,7 +9,7 @@ const FormTextInput = ({error, name, label = 'Type something here', type = 'text
                label={label}
                variant="outlined"
                error={error}
-        type={type}
+               type={type}
         />
         <ErrorMessage name={name}
                       component={FormHelperText}/>
