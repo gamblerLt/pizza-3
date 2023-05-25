@@ -37,7 +37,7 @@ const Order = () => (
 
                     <Typography variant="h6" component="h6">Make an Order</Typography>
 
-                   {<FormTextInput error={props.touched.name && !!props.errors.name} name="name" label="Pizza title"/>}
+                   <FormTextInput error={props.touched.name && !!props.errors.name} name="name" label="Pizza title"/>
 
                     <FormControl error={props.touched.size && !!props.errors.size} fullWidth>
                         <InputLabel id="size-label">Pizza size</InputLabel>
