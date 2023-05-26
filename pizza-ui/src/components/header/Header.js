@@ -1,7 +1,7 @@
 import {AppBar, Button, Link, Toolbar, Typography} from "@mui/material";
 import {NavLink} from "react-router-dom";
 import MenuItem from "./MenuItem";
-/*import logo from "./img/pizza-logo-long.png";*/
+import logo from "./img/pizza-logo-long.png";
 
 const Header = () => {
     return (
@@ -13,11 +13,11 @@ const Header = () => {
         >
             <Toolbar sx={{ flexWrap: "wrap", justifyContent: "center" }}>
                 <Typography variant="h6" color="inherit" noWrap>
-                    {/*<img
+                    <img
                         src={logo}
                         alt="Logo"
                         style={{ height: "30px", marginRight: "10px" }}
-                    />*/}
+                    />
                 </Typography>
                 <nav>
                     {/*<Link variant="button" color="text.primary" href="#" sx={{ my: 1, mx: 1.5 }}>
