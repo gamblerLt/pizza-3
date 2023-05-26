@@ -1,8 +1,11 @@
 import {Container} from "@mui/material";
 import Pizza from "../forms/Pizza";
-import UserRegistration from "../forms/UserRegistration";
+import Pizzas from "../page/Pizzas";
 import UserLogin from "../forms/UserLogin";
+import UserRegistration from "../forms/UserRegistration";
 import Order from "../forms/Order";
+import {Route, Routes} from "react-router-dom";
+
 
 const Content = () => {
 
@@ -16,10 +19,18 @@ const Content = () => {
                            mt: 4
                        }}>
 
-               <Pizza/>
-                <UserRegistration/>
+                {/*<Pizza/>*/}
+
+                {/*<UserRegistration/>
                 <UserLogin/>
-                <Order/>
+                <Order/>*/}
+                <Routes>
+                    <Route path="/" element={<Pizzas/>}/>
+                    <Route path="/pizzas/create" element={<Pizza/>}/>
+                    <Route path="/users/login" element={<UserLogin/>}/>
+                    <Route path="/orders/create" element={<Order/>}/>
+                    <Route path="/users/registration" element={<UserRegistration/>}/>
+                </Routes>
 
 
             </Container>
