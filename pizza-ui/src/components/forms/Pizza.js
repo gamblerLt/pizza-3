@@ -38,11 +38,9 @@ const Pizza = () => {
 
     const onCreatePizza = (values, helper) => {
 
-        // Extract the file name from the file path
         const fileName = values.picture.split('\\').pop().split('/').pop();
+        const modifiedValues = { ...values, picture: `images/${fileName}` }; // Corrected path
 
-        // Modify the picture path to use "../forms/images/" + fileName
-        const modifiedValues = { ...values, picture: `../forms/images/${fileName}` };
 
         savePizza(modifiedValues)
             .then((response) => {

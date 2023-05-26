@@ -48,7 +48,7 @@ return (
                                 <StyledTableCell>Title</StyledTableCell>
                                 <StyledTableCell>Size</StyledTableCell>
                                 <StyledTableCell>Description</StyledTableCell>
-                                {/*<StyledTableCell align="right">Picture</StyledTableCell>*/}
+                                <StyledTableCell align="center">Picture</StyledTableCell>
                                 <StyledTableCell align="right">Price</StyledTableCell>
                             </TableRow>
                         </TableHead>
@@ -58,7 +58,10 @@ return (
                                     <StyledTableCell component="th" scope="row">{pizza.title}</StyledTableCell>
                                     <StyledTableCell>{pizza.size}</StyledTableCell>
                                     <StyledTableCell>{pizza.description}</StyledTableCell>
-                                    {/*<StyledTableCell align="right">{pizza.image}</StyledTableCell>*/}
+                                  {/*<StyledTableCell align="center">{pizza.picture}</StyledTableCell>*/}
+                                    <img src={`http://localhost:3000/${pizza.picture}`} alt={pizza.title} style={{ width: "100px", height: "100px" }} />
+
+
                                     <StyledTableCell align="right">{pizza.price} €</StyledTableCell>
                                 </StyledTableRow>
                             ))}
