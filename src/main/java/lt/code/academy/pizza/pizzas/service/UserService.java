@@ -43,6 +43,7 @@ public class UserService {
     public void deleteUser(UUID id) {
         userRepository.deleteById(id);
     }
+}
 
   /*  public List<UserRegistration> search(String text)
        return userRep...
@@ -52,4 +53,4 @@ public class UserService {
             .map(Pizza::convert)
             .toList();
     }*/
-}
+
