@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import {
     CircularProgress,
     Paper,
@@ -9,17 +9,16 @@ import {
     TableRow,
     TextField,
 } from "@mui/material";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import { deletePizza } from '../api/pizzaApi';
+import TableCell, {tableCellClasses} from "@mui/material/TableCell";
+import {deletePizza} from '../api/pizzaApi';
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import SaveIcon from "@mui/icons-material/Save";
-import { getPizzas } from "../api/pizzaApi";
-import { updatePizza} from "../api/pizzaApi";
+import {getPizzas} from "../api/pizzaApi";
+import {updatePizza} from "../api/pizzaApi";
 import styled from "@emotion/styled";
 
-
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
+const StyledTableCell = styled(TableCell)(({theme}) => ({
     [`&.${tableCellClasses.head}`]: {
         backgroundColor: theme.palette.common.black,
         color: theme.palette.common.white,
@@ -29,7 +28,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
 }));
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
+const StyledTableRow = styled(TableRow)(({theme}) => ({
     "&:nth-of-type(odd)": {
         backgroundColor: theme.palette.action.hover,
     },
@@ -46,7 +45,7 @@ const Pizzas = () => {
 
     useEffect(() => {
         getPizzas()
-            .then(({ data }) => setPizzas(data))
+            .then(({data}) => setPizzas(data))
             .catch((error) => console.log("error ", error))
             .finally(() => setLoading(false));
     }, []);
@@ -67,7 +66,7 @@ const Pizzas = () => {
             .then(() => {
                 setPizzas((prevPizzas) =>
                     prevPizzas.map((pizza) =>
-                        pizza.id === id ? { ...pizza, ...updatedPizza } : pizza
+                        pizza.id === id ? {...pizza, ...updatedPizza} : pizza
                     )
                 );
                 setEditPizzaId(null);
@@ -96,10 +95,10 @@ const Pizzas = () => {
     return (
         <>
             {loading ? (
-                <CircularProgress />
+                <CircularProgress/>
             ) : (
                 <TableContainer component={Paper}>
-                    <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                    <Table sx={{minWidth: 700}} aria-label="customized table">
                         <TableHead>
                             <TableRow>
                                 <StyledTableCell>Title</StyledTableCell>
@@ -153,7 +152,7 @@ const Pizzas = () => {
                                         <img
                                             src={`http://localhost:3000/${pizza.picture}`}
                                             alt={pizza.title}
-                                            style={{ width: "100px", height: "100px" }}
+                                            style={{width: "100px", height: "100px"}}
                                         />
                                     </StyledTableCell>
                                     {editPizzaId === pizza.id ? (
@@ -199,5 +198,4 @@ const Pizzas = () => {
         </>
     );
 };
-
 export default Pizzas;
