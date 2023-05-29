@@ -5,6 +5,7 @@ import UserLogin from "../forms/UserLogin";
 import UserRegistration from "../forms/UserRegistration";
 import Order from "../forms/Order";
 import {Route, Routes} from "react-router-dom";
+import PizzaDetailPage from "../page/PizzaDetailPage";
 
 
 const Content = () => {
@@ -30,6 +31,7 @@ const Content = () => {
                     <Route path="/users/login" element={<UserLogin/>}/>
                     <Route path="/orders/create" element={<Order/>}/>
                     <Route path="/users/registration" element={<UserRegistration/>}/>
+                    <Route path="/pizzas/:id" element={<PizzaDetailPage/>}/>
                 </Routes>
 
 
