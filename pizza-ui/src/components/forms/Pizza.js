@@ -134,7 +134,7 @@ const Pizza = () => {
                             error={props.touched.picture && !!props.errors.picture}
                             name="picture"
                             label="Pizza picture"
-                           /*value=""*/
+                            value=""
                             type="file"
                         />
                         <FormTextInput
