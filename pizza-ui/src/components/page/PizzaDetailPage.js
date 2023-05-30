@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react";
-import {Button, CircularProgress, Grid, Typography, Paper, ImageListItem} from "@mui/material";
+import {Button, CircularProgress, Grid, Typography, Paper, ImageListItem, Input} from "@mui/material";
 import {NavLink, useParams} from "react-router-dom";
 import {getPizzaById, deletePizza} from "../api/pizzaApi";
 import DeletePizza from "../DeletePizza";
 
-const PizzaDetailPage = () => {
+const PizzaDetailPage = (props) => {
     const {id} = useParams();
     const [loading, setLoading] = useState(true);
     const [pizza, setPizza] = useState({});
@@ -29,7 +29,7 @@ const PizzaDetailPage = () => {
                                     <img
                                         src={`http://localhost:3000/${pizza.picture}`}
                                         alt={pizza.title}
-                                        style={{width: "45vh", height: "45vh"}}
+                                        style={{width: "65vh", height: "65vh"}}
                                     />
                                 </ImageListItem>
                             </Grid>
@@ -72,12 +72,9 @@ const PizzaDetailPage = () => {
                                 </Grid>
                             </Grid>
                             <Grid item xs={12}>
-                                <Button
-                                    variant="outlined"
-                                    //ce negerai
-                                    to={`/pizzas/${pizza.id}/update`}
-
-                                    component={NavLink}>Update pizza</Button>
+                                <NavLink to={`/pizzas/${pizza.id}/update`}>
+                                    <Button variant="outlined">Update pizza</Button>
+                                </NavLink>
                             </Grid>
 
                             <Grid item xs={9}>

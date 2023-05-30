@@ -11,12 +11,7 @@ import {
     TextField,
 } from "@mui/material";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import { deletePizza } from "../api/pizzaApi";
-import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
-import SaveIcon from "@mui/icons-material/Save";
 import { getPizzas } from "../api/pizzaApi";
-import { updatePizza } from "../api/pizzaApi";
 import styled from "@emotion/styled";
 import { NavLink} from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -47,6 +42,22 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     },
 }));
 
+const StyledImage = styled.img`
+    width: 40vh;
+    height: 40vh;
+    object-fit: cover;
+
+    @media (max-width: 768px) {
+        width: 30vh;
+        height: 30vh;
+    }
+
+    @media (max-width: 480px) {
+        width: 20vh;
+        height: 20vh;
+    }
+`;
+
 const Pizzas = () => {
     const navigate = useNavigate();
 
@@ -67,22 +78,6 @@ const Pizzas = () => {
 
     }
 
-/*
-    const handleDeletePizza = (id) => {
-        deletePizza(id)
-            .then(() => {
-                console.log("Pizza deleted successfully");
-                return getPizzas(); // Fetch pizzas after deletion
-            })
-            .then(({ data }) => {
-                setPizzas(data);
-                navigate('/pizzas');
-            })
-            .catch((error) => console.log("error ", error));
-    };
-*/
-
-
     return (
         <>
             {
@@ -93,20 +88,15 @@ const Pizzas = () => {
                     {pizzas.map((pizza) => (
                         <Paper key={pizza.id}>
                             <NavLink to={`/pizzas/${pizza.id}`}>
-                                <img
+                                <StyledImage
                                     src={`http://localhost:3000/${pizza.picture}`}
                                     alt={pizza.title}
-                                    style={{ width: "100%", height: "auto" }}
                                 />
                             </NavLink>
                             <StyledTableCell>{pizza.title}</StyledTableCell>
                             <StyledTableCell>{pizza.size}</StyledTableCell>
                             <StyledTableCell>{`${pizza.price} €`}</StyledTableCell>
-                            {/*<StyledTableCell><DeleteIcon
-                                    onClick={() => handleDeletePizza(pizza.id)}
-                                    color="secondary"
-                                />
-                            </StyledTableCell>*/}
+
                             <StyledTableCell align="right">
                                 <DeletePizza key={pizza.id}
                                                id={pizza.id}

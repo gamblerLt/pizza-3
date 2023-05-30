@@ -67,7 +67,7 @@ const Pizza = () => {
         }
 
         const onPizzaUpdate = (values, helper) => {
-            updatePizza(values, id)
+            updatePizza(id, values)
                 .then(() => navigation(`/pizzas/${id}`))
                 .catch((error) => setNotification({isVisible: true, message: 'Pizza cannot be updated', severity: 'error'}))
                 .finally(() => helper.setSubmitting(false));
@@ -133,8 +133,9 @@ const Pizza = () => {
                             as={Input}
                             error={props.touched.picture && !!props.errors.picture}
                             name="picture"
-                            type="file"
                             label="Pizza picture"
+                           /*value=""*/
+                            type="file"
                         />
                         <FormTextInput
                             error={props.touched.price && !!props.errors.price}
