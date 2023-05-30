@@ -9,12 +9,14 @@ import {
     InputLabel,
     Select,
     MenuItem,
-    Input,
+    Input
 } from '@mui/material';
 import * as Yup from 'yup';
 import FormTextInput from './FormTextInput';
-import { savePizza } from '../api/pizzaApi';
-import { useState } from 'react';
+import {getPizzaById, savePizza, updatePizza} from '../api/pizzaApi';
+import {useEffect, useState} from 'react';
+import {useNavigate, useParams} from "react-router-dom";
+import axios from "axios";
 
 const pizzaValidationSchema = Yup.object().shape({
     title: Yup.string()
@@ -31,10 +33,45 @@ const pizzaValidationSchema = Yup.object().shape({
         .typeError('Price must be a number')
         .positive('Price must be bigger than 0')
         .required('Price is required'),
-});
+})
 
 const Pizza = () => {
     const [notification, setNotification] = useState({ isVisible: false });
+    const {id} = useParams();
+    const [pizza, setPizza] = useState({
+        title: '',
+        size: '',
+        description: '',
+        picture: '',
+        price: ''
+    });
+        const [loading, setLoading] = useState(true);
+        const navigation = useNavigate();
+
+        useEffect(() => {
+            if(!id) {
+                setLoading(false);
+                return;
+            }
+            getPizzaById(id)
+                .then(({data}) => setPizza(data))
+                .catch((err) => console.log(err))
+                .finally(() => setLoading(false));
+        }, []);
+        const onFormSubmit = (values, helper) => {
+            if(id) {
+                onPizzaUpdate(values, helper);
+                return;
+            }
+            onCreatePizza(values, helper);
+        }
+
+        const onPizzaUpdate = (values, helper) => {
+            updatePizza(values, id)
+                .then(() => navigation(`/pizzas/${id}`))
+                .catch((error) => setNotification({isVisible: true, message: 'Pizza cannot be updated', severity: 'error'}))
+                .finally(() => helper.setSubmitting(false));
+        }
 
     const onCreatePizza = (values, helper) => {
 
@@ -55,25 +92,22 @@ const Pizza = () => {
     };
 
     return (
-        <Formik
-            initialValues={{
-                title: '',
-                size: '',
-                description: '',
-                picture: '',
-                price: '',
-            }}
-            onSubmit={onCreatePizza}
+        <>
+            {
+                loading ?<CircularProgress/> : <Formik
+            initialValues={pizza}
+
+            onSubmit={onFormSubmit}
             validationSchema={pizzaValidationSchema}
         >
-            {(props) => (
+            {props => (
                 <Form>
                     <Stack spacing={2} direction="column">
-                        {notification.isVisible && (
+                        {notification.isVisible &&
                             <Alert severity={notification.severity}>{notification.message}</Alert>
-                        )}
-                        <Typography variant="h6" component="h6">
-                            Create a Pizza
+                        }
+                        <Typography variant="h6">
+                            {id ? 'Update Pizza:' : 'Create Pizza'}
                         </Typography>
                         <FormTextInput
                             error={props.touched.title && !!props.errors.title}
@@ -109,18 +143,20 @@ const Pizza = () => {
                         />
                     </Stack>
                     <Typography sx={{ textAlign: 'right', mt: 2 }}>
-                        {props.isSubmitting ? (
+                        {props.isSubmitting ?
                             <CircularProgress />
-                        ) : (
+                        :
                             <Button variant="outlined" type="submit">
-                                Save
+                                {id ? 'Update' : 'Create'}
                             </Button>
-                        )}
+                        }
                     </Typography>
                 </Form>
             )}
         </Formik>
-    );
-};
+            }
+            </>
+    )
+}
 
 export default Pizza;

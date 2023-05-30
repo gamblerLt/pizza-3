@@ -20,18 +20,17 @@ const Content = () => {
                            mt: 4
                        }}>
 
-                {/*<Pizza/>*/}
-
-                {/*<UserRegistration/>
-                <UserLogin/>
-                <Order/>*/}
                 <Routes>
                     <Route path="/" element={<Pizzas/>}/>
-                    <Route path="/pizzas/create" element={<Pizza/>}/>
+                   {/* <Route path="/pizzas/create" element={<Pizza/>}/>*/}
+                    <Route path="/pizzas/create" element={<Pizza key="create"/>}/>
                     <Route path="/users/login" element={<UserLogin/>}/>
                     <Route path="/orders/create" element={<Order/>}/>
                     <Route path="/users/registration" element={<UserRegistration/>}/>
+                    <Route path="/pizzas/:id/update" element={<Pizza key="update"/>}/>
                     <Route path="/pizzas/:id" element={<PizzaDetailPage/>}/>
+
+
                 </Routes>
 
 
