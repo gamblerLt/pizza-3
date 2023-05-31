@@ -60,9 +60,9 @@ const PizzaDetailPage = (props) => {
 
     return (
         <>
-            {loading ? (
+            {loading ?
                 <CircularProgress />
-            ) : (
+             :
                 <Paper elevation={2} sx={{ p: 1 }}>
                     <Grid container spacing={2}>
                         <Grid item xs={5}>
@@ -78,14 +78,14 @@ const PizzaDetailPage = (props) => {
                             <Grid container spacing={2} direction="column">
                                 <Grid item>
                                     <Typography variant="h3">
-                                        {editableFields.title ? (
+                                        {editableFields.title ?
                                             <Input
                                                 value={pizza.title}
                                                 onChange={(e) => handleFieldChange("title", e.target.value)}
                                             />
-                                        ) : (
+                                         :
                                             pizza.title
-                                        )}
+                                        }
                                     </Typography>
                                 </Grid>
                                 <Grid item>
@@ -94,14 +94,14 @@ const PizzaDetailPage = (props) => {
                                             <b>Size:</b>
                                         </Grid>
                                         <Grid item xs={10}>
-                                            {editableFields.size ? (
+                                            {editableFields.size ?
                                                 <Input
                                                     value={pizza.size}
                                                     onChange={(e) => handleFieldChange("size", e.target.value)}
                                                 />
-                                            ) : (
+                                             :
                                                 pizza.size
-                                            )}
+                                            }
                                         </Grid>
                                     </Grid>
                                 </Grid>
@@ -111,14 +111,14 @@ const PizzaDetailPage = (props) => {
                                             <b>Description:</b>
                                         </Grid>
                                         <Grid item xs={10}>
-                                            {editableFields.description ? (
+                                            {editableFields.description ?
                                                 <Input
                                                     value={pizza.description}
                                                     onChange={(e) => handleFieldChange("description", e.target.value)}
                                                 />
-                                            ) : (
+                                             :
                                                 pizza.description
-                                            )}
+                                            }
                                         </Grid>
                                     </Grid>
                                 </Grid>
@@ -128,14 +128,14 @@ const PizzaDetailPage = (props) => {
                                             <b>Price:</b>
                                         </Grid>
                                         <Grid item xs={10}>
-                                            {editableFields.price ? (
+                                            {editableFields.price ?
                                                 <Input
                                                     value={pizza.price}
                                                     onChange={(e) => handleFieldChange("price", e.target.value)}
                                                 />
-                                            ) : (
+                                             :
                                                 `${pizza.price} €`
-                                            )}
+                                            }
                                         </Grid>
                                     </Grid>
                                 </Grid>
@@ -153,7 +153,7 @@ const PizzaDetailPage = (props) => {
                         </Grid>
                     </Grid>
                 </Paper>
-            )}
+            }
         </>
     );
 };
