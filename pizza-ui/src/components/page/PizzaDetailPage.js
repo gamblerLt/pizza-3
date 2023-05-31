@@ -29,13 +29,6 @@ const PizzaDetailPage = (props) => {
         }));
     };
 
-    const toggleEditField = (field) => {
-        setEditableFields((prevEditableFields) => ({
-            ...prevEditableFields,
-            [field]: !prevEditableFields[field],
-        }));
-    };
-
     const handleUpdate = () => {
         if (Object.values(editableFields).some((editable) => editable)) {
             // Save changes
@@ -94,9 +87,6 @@ const PizzaDetailPage = (props) => {
                                             pizza.title
                                         )}
                                     </Typography>
-                                    <Button onClick={() => toggleEditField("title")}>
-                                        {editableFields.title ? "Save" : "Edit"}
-                                    </Button>
                                 </Grid>
                                 <Grid item>
                                     <Grid container spacing={1} alignItems="center">
@@ -114,9 +104,6 @@ const PizzaDetailPage = (props) => {
                                             )}
                                         </Grid>
                                     </Grid>
-                                    <Button onClick={() => toggleEditField("size")}>
-                                        {editableFields.size ? "Save" : "Edit"}
-                                    </Button>
                                 </Grid>
                                 <Grid item>
                                     <Grid container spacing={1} alignItems="center">
@@ -134,9 +121,6 @@ const PizzaDetailPage = (props) => {
                                             )}
                                         </Grid>
                                     </Grid>
-                                    <Button onClick={() => toggleEditField("description")}>
-                                        {editableFields.description ? "Save" : "Edit"}
-                                    </Button>
                                 </Grid>
                                 <Grid item>
                                     <Grid container spacing={1} alignItems="center">
@@ -154,9 +138,6 @@ const PizzaDetailPage = (props) => {
                                             )}
                                         </Grid>
                                     </Grid>
-                                    <Button onClick={() => toggleEditField("price")}>
-                                        {editableFields.price ? "Save" : "Edit"}
-                                    </Button>
                                 </Grid>
                             </Grid>
                         </Grid>
