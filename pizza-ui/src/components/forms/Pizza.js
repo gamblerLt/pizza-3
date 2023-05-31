@@ -45,33 +45,23 @@ const Pizza = () => {
         picture: '',
         price: ''
     });
-        const [loading, setLoading] = useState(true);
-        const navigation = useNavigate();
+    const [loading, setLoading] = useState(true);
+    const navigation = useNavigate();
 
-        useEffect(() => {
-            if(!id) {
-                setLoading(false);
-                return;
-            }
-            getPizzaById(id)
-                .then(({data}) => setPizza(data))
-                .catch((err) => console.log(err))
-                .finally(() => setLoading(false));
-        }, []);
-        const onFormSubmit = (values, helper) => {
-            if(id) {
-                onPizzaUpdate(values, helper);
-                return;
-            }
-            onCreatePizza(values, helper);
+    useEffect(() => {
+        if(!id) {
+            setLoading(false);
+            return;
         }
+        getPizzaById(id)
+            .then(({data}) => setPizza(data))
+            .catch((err) => console.log(err))
+            .finally(() => setLoading(false));
+    }, []);
+    const onFormSubmit = (values, helper) => {
 
-        const onPizzaUpdate = (values, helper) => {
-            updatePizza(id, values)
-                .then(() => navigation(`/pizzas/${id}`))
-                .catch((error) => setNotification({isVisible: true, message: 'Pizza cannot be updated', severity: 'error'}))
-                .finally(() => helper.setSubmitting(false));
-        }
+        onCreatePizza(values, helper);
+    }
 
     const onCreatePizza = (values, helper) => {
 
@@ -91,72 +81,69 @@ const Pizza = () => {
             .finally(() => helper.setSubmitting(false));
     };
 
+
     return (
         <>
             {
                 loading ?<CircularProgress/> : <Formik
-            initialValues={pizza}
+                    initialValues={pizza}
 
-            onSubmit={onFormSubmit}
-            validationSchema={pizzaValidationSchema}
-        >
-            {props => (
-                <Form>
-                    <Stack spacing={2} direction="column">
-                        {notification.isVisible &&
-                            <Alert severity={notification.severity}>{notification.message}</Alert>
-                        }
-                        <Typography variant="h6">
-                            {id ? 'Update Pizza:' : 'Create Pizza'}
-                        </Typography>
-                        <FormTextInput
-                            error={props.touched.title && !!props.errors.title}
-                            name="title"
-                            label="Pizza title"
-                        />
-                        <FormControl error={props.touched.size && !!props.errors.size} fullWidth>
-                            <InputLabel id="size-label">Pizza size</InputLabel>
-                            <Field as={Select} labelId="size-label" id="size" name="size">
-                                <MenuItem value="L">L</MenuItem>
-                                <MenuItem value="XL">XL</MenuItem>
-                            </Field>
-                        </FormControl>
+                    onSubmit={onFormSubmit}
+                    validationSchema={pizzaValidationSchema}
+                >
+                    {props => (
+                        <Form>
+                            <Stack spacing={2} direction="column">
+                                {notification.isVisible &&
+                                    <Alert severity={notification.severity}>{notification.message}</Alert>
+                                }
+                                <Typography variant="h6">
+                                    {id ? 'Update Pizza:' : 'Create Pizza'}
+                                </Typography>
+                                <FormTextInput
+                                    error={props.touched.title && !!props.errors.title}
+                                    name="title"
+                                    label="Pizza title"
+                                />
+                                <FormControl error={props.touched.size && !!props.errors.size} fullWidth>
+                                    <InputLabel id="size-label">Pizza size</InputLabel>
+                                    <Field as={Select} labelId="size-label" id="size" name="size">
+                                        <MenuItem value="L">L</MenuItem>
+                                        <MenuItem value="XL">XL</MenuItem>
+                                    </Field>
+                                </FormControl>
 
-                        <FormTextInput
-                            error={props.touched.description && !!props.errors.description}
-                            name="description"
-                            label="Pizza description"
-                            rows={4}
-                            multiline
-                        />
-                        <Field
-                            as={Input}
-                            error={props.touched.picture && !!props.errors.picture}
-                            name="picture"
-                            label="Pizza picture"
-                            value=""
-                            type="file"
-                        />
-                        <FormTextInput
-                            error={props.touched.price && !!props.errors.price}
-                            name="price"
-                            label="Pizza price"
-                        />
-                    </Stack>
-                    <Typography sx={{ textAlign: 'right', mt: 2 }}>
-                        {props.isSubmitting ?
-                            <CircularProgress />
-                        :
-                            <Button variant="outlined" type="submit">
-                                {id ? 'Update' : 'Create'}
-                            </Button>
-                        }
-                    </Typography>
-                </Form>
-            )}
-        </Formik>
+                                <FormTextInput
+                                    error={props.touched.description && !!props.errors.description}
+                                    name="description"
+                                    label="Pizza description"
+                                    rows={4}
+                                    multiline
+                                />
+                                <Field
+                                    as={Input}
+                                    error={props.touched.picture && !!props.errors.picture}
+                                    name="picture"
+                                    label="Pizza picture"
+                                    /*   value=""*/
+                                    type="file"
+
+                                />
+                                <FormTextInput
+                                    error={props.touched.price && !!props.errors.price}
+                                    name="price"
+                                    label="Pizza price"
+                                />
+                            </Stack>
+                            <Typography sx={{ textAlign: 'right', mt: 2 }}>
+
+                                <Button variant="outlined" type="submit">Create</Button>
+                            </Typography>
+                        </Form>
+                    )}
+                </Formik>
             }
-            </>
+        </>
     )
 }
 
