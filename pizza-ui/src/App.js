@@ -5,6 +5,10 @@ import Content from "./components/content/Content";
 import Header from "./components/header/Header";
 import {BrowserRouter} from "react-router-dom";
 
+import {createContext, useState} from "react";
+
+
+
 const App = () => {
     return (
         <Experimental_CssVarsProvider>

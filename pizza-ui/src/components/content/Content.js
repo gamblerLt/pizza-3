@@ -6,6 +6,7 @@ import UserRegistration from "../forms/UserRegistration";
 import Order from "../forms/Order";
 import {Route, Routes} from "react-router-dom";
 import PizzaDetailPage from "../page/PizzaDetailPage";
+import Cart from "..page/Cart";
 
 
 const Content = () => {
@@ -29,11 +30,10 @@ const Content = () => {
                     <Route path="/users/registration" element={<UserRegistration/>}/>
                     <Route path="/pizzas/:id/update" element={<Pizza key="update"/>}/>
                     <Route path="/pizzas/:id" element={<PizzaDetailPage/>}/>
+                    <Route path="/cart" element={<Cart/>}/>
 
 
                 </Routes>
-
-
             </Container>
         </>
     );
