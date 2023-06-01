@@ -31,9 +31,9 @@ const Header = () => {
                     </Link>*/}
                     <MenuItem path="/" name="Pizzas"/>
                     <MenuItem path="/pizzas/create" name="Create pizza"/>
+                    <MenuItem path="/orders" name="Orders"/>
+                    <MenuItem path="/users/registration" name="User Registration"/>
                     <MenuItem path="/users/login" name="User login"/>
-                    <MenuItem path="/orders/create" name="Create Order"/>
-                    <MenuItem path="/users/registration" name="Create user"/>
 
 {/*<Routes>
                     <Route path="/" element={<Pizzas/>}/>
@@ -44,9 +44,9 @@ const Header = () => {
                 </Routes>*/}
 
                 </nav>
-                <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+             {/*   <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
                     Login
-                </Button>
+                </Button>*/}
             </Toolbar>
         </AppBar>
     );
