@@ -1,0 +1,17 @@
+{
+  "pizzadetailpage" : {
+   "size" : "Size",
+    "description": "Description",
+    "price" : "Price"
+  },
+  "header" : {
+    "pizzas" : "Pizzas",
+    "create" : {
+      "pizza" : "Create pizza",
+      "user" : "Registration"
+    },
+    "login" : "Login",
+    "orders": "Orders"
+
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "pizzadetailpage" : {
+    "size" : "Dydis",
+    "description": "Aprašymas",
+    "price" : "Kaina"
+  },
+  "header" : {
+    "pizzas" : "Picos",
+    "create" : {
+      "pizza" : "Sukurti picą",
+      "user" : "Registracija"
+    },
+    "login" : "Prisijungti",
+    "orders": "Užsakymai"
+
+  }
+}

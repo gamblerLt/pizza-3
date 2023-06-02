@@ -92,8 +92,10 @@ const Pizzas = () => {
                                     src={`http://localhost:3000/${pizza.picture}`}
                                     alt={pizza.title}
                                 />
+
                             </NavLink>
                             <StyledTableCell>{pizza.title}</StyledTableCell>
+
                             <StyledTableCell>{pizza.size}</StyledTableCell>
                             <StyledTableCell>{`${pizza.price} €`}</StyledTableCell>
 

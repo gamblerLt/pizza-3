@@ -2,8 +2,16 @@ import {AppBar, Button, Link, Toolbar, Typography} from "@mui/material";
 import {NavLink} from "react-router-dom";
 import MenuItem from "./MenuItem";
 import logo from "./img/pizza-logo-long.png";
+import {useTranslation} from "react-i18next";
+import LanguageSwitcher from "../switcher/LanguageSwitcher";
+
+
 
 const Header = () => {
+
+    const {t} = useTranslation('header');
+
+
     return (
         <AppBar
             position="static"
@@ -20,6 +28,16 @@ const Header = () => {
                     />
                 </Typography>
                 <nav>
+
+
+                    <MenuItem path="/" value={t('pizzas')}/>
+                    <MenuItem path="/pizzas/create" value={t('create.pizza')}/>
+                    <MenuItem path="/orders" value={t('orders')}/>
+                    <MenuItem path="/users/registration" value={t('create.user')}/>
+                    <MenuItem path="/users/login" value={t('login')}/>
+
+
+
                     {/*<Link variant="button" color="text.primary" href="#" sx={{ my: 1, mx: 1.5 }}>
                         Our Pizzas
                     </Link>
@@ -29,11 +47,13 @@ const Header = () => {
                     <Link variant="button" color="text.primary" href="#" sx={{ my: 1, mx: 1.5 }}>
                         About Us
                     </Link>*/}
-                    <MenuItem path="/" name="Pizzas"/>
+                    {/*<MenuItem path="/" name="Pizzas"/>
                     <MenuItem path="/pizzas/create" name="Create pizza"/>
                     <MenuItem path="/orders" name="Orders"/>
                     <MenuItem path="/users/registration" name="User Registration"/>
                     <MenuItem path="/users/login" name="User login"/>
+                    */}
+
 
 {/*<Routes>
                     <Route path="/" element={<Pizzas/>}/>
@@ -44,6 +64,7 @@ const Header = () => {
                 </Routes>*/}
 
                 </nav>
+                <LanguageSwitcher/>
              {/*   <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
                     Login
                 </Button>*/}
