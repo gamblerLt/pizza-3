@@ -12,6 +12,7 @@ import FormTextInput from "./FormTextInput";
 
 import { createUser, getUserById } from "../api/userApi";
 import { useParams } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const userValidationSchema = Yup.object().shape({
     name: Yup.string()
@@ -49,7 +50,7 @@ const UserRegistration = () => {
         passwordConfirmation: "",
     });
     const [loading, setLoading] = useState(true);
-    //const navigation = useNavigate();
+    const navigation = useNavigate();
 
     useEffect(() => {
         if (!id) {
@@ -85,6 +86,9 @@ const UserRegistration = () => {
                 console.log(error);
             })
             .finally(() => helper.setSubmitting(false));
+    };
+    const handleAdditionalAction = () => {
+        navigation("/users/login");
     };
 
     return (
@@ -146,6 +150,11 @@ const UserRegistration = () => {
                                 <Button variant="outlined" type="submit">
                                     Register
                                 </Button>
+                                {notification.isVisible && notification.severity === "success" && (
+                                    <Button variant="outlined" type="button" sx={{ ml: 2 }} onClick={handleAdditionalAction}>
+                                        Login
+                                    </Button>
+                                )}
                             </Typography>
                         </Form>
                     )}

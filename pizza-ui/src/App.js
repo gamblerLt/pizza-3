@@ -4,8 +4,8 @@ import Footer from './components/footer/Footer';
 import Content from "./components/content/Content";
 import Header from "./components/header/Header";
 import {BrowserRouter} from "react-router-dom";
-
-import {createContext, useState} from "react";
+//for cart:
+//import {createContext, useState} from "react";
 
 
 
