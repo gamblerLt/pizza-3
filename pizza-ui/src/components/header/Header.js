@@ -30,13 +30,17 @@ const Header = () => {
                 <nav>
 
 
-                    <MenuItem path="/" value={t('pizzas')}/>
+                  {/*  <MenuItem path="/" value={t('pizzas')}/>
                     <MenuItem path="/pizzas/create" value={t('create.pizza')}/>
                     <MenuItem path="/orders" value={t('orders')}/>
                     <MenuItem path="/users/registration" value={t('create.user')}/>
-                    <MenuItem path="/users/login" value={t('login')}/>
+                    <MenuItem path="/users/login" value={t('login')}/>*/}
 
-
+                    <MenuItem path="/" name={t("pizzas")} />
+                    <MenuItem path="/pizzas/create" name={t("create.pizza")} />
+                    <MenuItem path="/orders" name={t("orders")} />
+                    <MenuItem path="/users/registration" name={t("create.user")} />
+                    <MenuItem path="/users/login" name={t("login")} />
 
                     {/*<Link variant="button" color="text.primary" href="#" sx={{ my: 1, mx: 1.5 }}>
                         Our Pizzas

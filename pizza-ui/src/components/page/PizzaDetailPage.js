@@ -3,8 +3,12 @@ import { Button, CircularProgress, Grid, Typography, Paper, ImageListItem, Input
 import { useParams } from "react-router-dom";
 import { getPizzaById, updatePizza, deletePizza } from "../api/pizzaApi";
 import DeletePizza from "../DeletePizza";
+//import {useTranslation} from "react-i18next";
+
 
 const PizzaDetailPage = (props) => {
+    //vertimas
+   //  const {t} useTranslation();
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
     const [pizza, setPizza] = useState({});
