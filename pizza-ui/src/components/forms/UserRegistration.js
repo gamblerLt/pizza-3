@@ -95,9 +95,9 @@ const UserRegistration = () => {
 
     return (
         <>
-            {loading ? (
+            {loading ?
                 <CircularProgress />
-            ) : (
+             :
                 <Formik
                     initialValues={user}
                     onSubmit={onFormSubmit}
@@ -161,7 +161,7 @@ const UserRegistration = () => {
                         </Form>
                     )}
                 </Formik>
-            )}
+            }
         </>
     );
 };
