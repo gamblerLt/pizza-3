@@ -22,6 +22,8 @@
     "description": "Picos aprašymas",
     "picture": "Paveikslėlis",
     "price": "Kaina",
+    "created": "Pica sėkmingai sukurta",
+    "not_created": "Picos sukurti nepavyko",
     "button_create": "Sukurti"
   },
   "registration": {
@@ -31,7 +33,10 @@
   "address": "Adresas",
   "email": "El. paštas",
   "password": "Slaptažodis",
-  "confirm_password":"Slaptažodžio patvirtinimas"
+  "confirm_password":"Slaptažodžio patvirtinimas",
+    "registration_ok": "Sėkmingai prisiregistruota",
+    "registration_not_ok": "Registracija nepavyko",
+    "login": "prisijungti"
 },
   "login": {
   "user_login": "Vartotojo prisijungimas",

@@ -23,6 +23,8 @@
     "description": "Pizza description",
     "picture": "Picture",
     "price": "Price",
+    "created": "Pizza created successfully",
+    "not_created": "Pizza was not created",
     "button_create": "Create"
   },
   "registration": {
@@ -30,9 +32,12 @@
     "name":"Name",
     "phone":"Phone number, eg. +370...",
     "address":"Address",
-    "email":"Email",
-    "password":"Password",
-    "confirm_password":"Confirm password"
+    "email": "Email",
+    "password": "Password",
+    "confirm_password":"Confirm password",
+    "registration_ok": "Registration was successful",
+    "registration_not_ok": "Registration was not successful",
+    "login": "Login"
   },
 
   "login": {

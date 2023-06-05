@@ -67,16 +67,16 @@ const Pizza = () => {
     const onCreatePizza = (values, helper) => {
 
         const fileName = values.picture.split('\\').pop().split('/').pop();
-        const modifiedValues = { ...values, picture: `images/${fileName}` }; // Corrected path
+        const modifiedValues = { ...values, picture: `images/${fileName}` };
 
 
         savePizza(modifiedValues)
             .then((response) => {
                 helper.resetForm();
-                setNotification({ isVisible: true, message: 'Pizza created successfully', severity: 'success' });
+                setNotification({ isVisible: true, message: t('created'), severity: 'success' });
             })
             .catch((error) => {
-                setNotification({ isVisible: true, message: 'Pizza cannot be created', severity: 'error' });
+                setNotification({ isVisible: true, message: t('not_created'), severity: 'error' });
                 console.log(error);
             })
             .finally(() => helper.setSubmitting(false));
@@ -99,7 +99,6 @@ const Pizza = () => {
                                     <Alert severity={notification.severity}>{notification.message}</Alert>
                                 }
                                 <Typography variant="h6">
-                                   {/* {id ? 'Update Pizza:' : 'Create Pizza'}*/}
                                     {t('create')}
                                 </Typography>
                                 <FormTextInput

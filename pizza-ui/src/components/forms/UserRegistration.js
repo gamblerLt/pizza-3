@@ -75,14 +75,14 @@ const UserRegistration = () => {
                 helper.resetForm();
                 setNotification({
                     isVisible: true,
-                    message: "User registration success",
+                    message: t('registration_ok'),
                     severity: "success",
                 });
             })
             .catch((error) => {
                 setNotification({
                     isVisible: true,
-                    message: "User registration NOT success",
+                    message: t('registration_not_ok'),
                     severity: "error",
                 });
                 console.log(error);
@@ -154,7 +154,7 @@ const UserRegistration = () => {
                                 </Button>
                                 {notification.isVisible && notification.severity === "success" && (
                                     <Button variant="outlined" type="button" sx={{ ml: 2 }} onClick={handleAdditionalAction}>
-                                        {t('register')}
+                                        {t('login')}
                                     </Button>
                                 )}
                             </Typography>
