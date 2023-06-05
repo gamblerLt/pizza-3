@@ -2,7 +2,9 @@
   "pizzadetailpage" : {
     "size" : "Dydis",
     "description": "Aprašymas",
-    "price" : "Kaina"
+    "price" : "Kaina",
+    "save": "Išsaugoti",
+    "update": "Atnaujinti"
   },
   "header" : {
     "pizzas" : "Picos",
@@ -12,6 +14,30 @@
     },
     "login" : "Prisijungti",
     "orders": "Užsakymai"
+  },
+  "create" : {
+    "create" : "Sukurti picą",
+    "title": "Picos pavadinimas",
+    "size": "Picos dydis",
+    "description": "Picos aprašymas",
+    "picture": "Paveikslėlis",
+    "price": "Kaina",
+    "button_create": "Sukurti"
+  },
+  "registration": {
+  "register": "Registracija",
+  "name": "Vardas",
+  "phone": "Telefono numeris, pvz. +370...",
+  "address": "Adresas",
+  "email": "El. paštas",
+  "password": "Slaptažodis",
+  "confirm_password":"Slaptažodžio patvirtinimas"
+},
+  "login": {
+  "user_login": "Vartotojo prisijungimas",
+  "username":"Vartotojo vardas",
+  "email":"El. paštas",
+  "password":"Slaptažodis"
+}
 
-  }
 }

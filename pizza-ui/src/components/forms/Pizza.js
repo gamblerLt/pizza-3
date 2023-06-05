@@ -16,7 +16,7 @@ import FormTextInput from './FormTextInput';
 import {getPizzaById, savePizza, updatePizza} from '../api/pizzaApi';
 import {useEffect, useState} from 'react';
 import {useNavigate, useParams} from "react-router-dom";
-import axios from "axios";
+import {useTranslation} from "react-i18next";
 
 const pizzaValidationSchema = Yup.object().shape({
     title: Yup.string()
@@ -36,6 +36,7 @@ const pizzaValidationSchema = Yup.object().shape({
 })
 
 const Pizza = () => {
+    const {t} = useTranslation('create');
     const [notification, setNotification] = useState({ isVisible: false });
     const {id} = useParams();
     const [pizza, setPizza] = useState({
@@ -98,15 +99,16 @@ const Pizza = () => {
                                     <Alert severity={notification.severity}>{notification.message}</Alert>
                                 }
                                 <Typography variant="h6">
-                                    {id ? 'Update Pizza:' : 'Create Pizza'}
+                                   {/* {id ? 'Update Pizza:' : 'Create Pizza'}*/}
+                                    {t('create')}
                                 </Typography>
                                 <FormTextInput
                                     error={props.touched.title && !!props.errors.title}
                                     name="title"
-                                    label="Pizza title"
+                                    label={t('title')}
                                 />
                                 <FormControl error={props.touched.size && !!props.errors.size} fullWidth>
-                                    <InputLabel id="size-label">Pizza size</InputLabel>
+                                    <InputLabel id="size-label">{t('size')}</InputLabel>
                                     <Field as={Select} labelId="size-label" id="size" name="size">
                                         <MenuItem value="L">L</MenuItem>
                                         <MenuItem value="XL">XL</MenuItem>
@@ -116,7 +118,7 @@ const Pizza = () => {
                                 <FormTextInput
                                     error={props.touched.description && !!props.errors.description}
                                     name="description"
-                                    label="Pizza description"
+                                    label={t('description')}
                                     rows={4}
                                     multiline
                                 />
@@ -124,7 +126,7 @@ const Pizza = () => {
                                     as={Input}
                                     error={props.touched.picture && !!props.errors.picture}
                                     name="picture"
-                                    label="Pizza picture"
+                                    label={t('picture')}
                                     /*   value=""*/
                                     type="file"
 
@@ -132,12 +134,12 @@ const Pizza = () => {
                                 <FormTextInput
                                     error={props.touched.price && !!props.errors.price}
                                     name="price"
-                                    label="Pizza price"
+                                    label={t('price')}
                                 />
                             </Stack>
                             <Typography sx={{ textAlign: 'right', mt: 2 }}>
 
-                                <Button variant="outlined" type="submit">Create</Button>
+                                <Button variant="outlined" type="submit">{t('button_create')}</Button>
                             </Typography>
                         </Form>
                     )}

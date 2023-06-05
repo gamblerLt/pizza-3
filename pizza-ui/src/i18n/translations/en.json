@@ -1,8 +1,10 @@
 {
   "pizzadetailpage" : {
-   "size" : "Size",
-    "description": "Description",
-    "price" : "Price"
+   "size" : "Size:",
+    "description": "Description:",
+    "price" : "Price:",
+    "save": "Save",
+    "update": "Update"
   },
   "header" : {
     "pizzas" : "Pizzas",
@@ -13,5 +15,31 @@
     "login" : "Login",
     "orders": "Orders"
 
-  }
+  },
+  "create" : {
+    "create" : "Create pizza",
+    "title": "Pizza title",
+    "size": "Pizza size",
+    "description": "Pizza description",
+    "picture": "Picture",
+    "price": "Price",
+    "button_create": "Create"
+  },
+  "registration": {
+    "register": "Registration",
+    "name":"Name",
+    "phone":"Phone number, eg. +370...",
+    "address":"Address",
+    "email":"Email",
+    "password":"Password",
+    "confirm_password":"Confirm password"
+  },
+
+  "login": {
+  "user_login": "User login",
+  "username":"Username",
+  "email":"Email",
+  "password":"Password"
+}
+
 }

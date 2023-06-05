@@ -3,6 +3,7 @@ import {Form, Formik} from "formik";
 import * as Yup from "yup";
 import {Button, CircularProgress, FormControl, FormHelperText, Stack, Typography} from "@mui/material";
 import FormTextInput from "./FormTextInput";
+import {useTranslation} from "react-i18next";
 
 const loginValidationSchema = Yup.object().shape({
     username: Yup.string()
@@ -17,7 +18,9 @@ const loginValidationSchema = Yup.object().shape({
 
 });
 
-const UserLogin = () => (
+const UserLogin = () => {
+const {t} = useTranslation('login');
+return (
     <Formik
         initialValues={{
             username: '',
@@ -40,18 +43,20 @@ const UserLogin = () => (
         {props => (
             <Form>
                 <Stack spacing={2} direction="column">
-                   <Typography variant="h6" component="h6">User Login</Typography>
-                    <FormTextInput error={props.touched.username && !!props.errors.username} name="username" label="Username"/>
-                    <FormTextInput error={props.touched.email && !!props.errors.email} name="email" label="Email" />
+                    <Typography variant="h6" component="h6">{t('user_login')}</Typography>
+                    <FormTextInput error={props.touched.username && !!props.errors.username} name="username"
+                                   label={t('username')}/>
+                    <FormTextInput error={props.touched.email && !!props.errors.email} name="email" label={t('email')}/>
                     <FormTextInput error={props.touched.password && !!props.errors.password} name="password"
-                                   label="Password"/>
+                                   label={t('password')}/>
                 </Stack>
-                <Typography sx={{ textAlign: 'right', mt: 2 }}>
-                    {props.isSubmitting ? <CircularProgress /> : <Button variant="outlined" type="submit">Login</Button>}
+                <Typography sx={{textAlign: 'right', mt: 2}}>
+                    {props.isSubmitting ? <CircularProgress/> : <Button variant="outlined" type="submit">{t('user_login')}</Button>}
                 </Typography>
             </Form>
         )}
     </Formik>
 
-);
+)
+};
 export default UserLogin;

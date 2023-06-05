@@ -13,6 +13,7 @@ import FormTextInput from "./FormTextInput";
 import { createUser, getUserById } from "../api/userApi";
 import { useParams } from "react-router-dom";
 import {useNavigate} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 const userValidationSchema = Yup.object().shape({
     name: Yup.string()
@@ -35,6 +36,7 @@ const userValidationSchema = Yup.object().shape({
 });
 
 const UserRegistration = () => {
+    const {t} = useTranslation('registration');
     const [notification, setNotification] = useState({
         isVisible: false,
         message: "",
@@ -109,31 +111,31 @@ const UserRegistration = () => {
                                         {notification.message}
                                     </Alert>
                                 )}
-                                <Typography variant="h6">Create User</Typography>
+                                <Typography variant="h6">{t('register')}</Typography>
                                 <FormTextInput
                                     error={props.touched.name && !!props.errors.name}
                                     name="name"
-                                    label="Name"
+                                    label={t('name')}
                                 />
                                 <FormTextInput
                                     error={props.touched.phone && !!props.errors.phone}
                                     name="phone"
-                                    label="Phone number (e.g., +370...)"
+                                    label={t('phone')}
                                 />
                                 <FormTextInput
                                     error={props.touched.address && !!props.errors.address}
                                     name="address"
-                                    label="Address"
+                                    label={t('address')}
                                 />
                                 <FormTextInput
                                     error={props.touched.email && !!props.errors.email}
                                     name="email"
-                                    label="Email"
+                                    label={t('email')}
                                 />
                                 <FormTextInput
                                     error={props.touched.password && !!props.errors.password}
                                     name="password"
-                                    label="Password"
+                                    label={t('password')}
                                     type="password"
                                 />
                                 <FormTextInput
@@ -142,17 +144,17 @@ const UserRegistration = () => {
                                         !!props.errors.passwordConfirmation
                                     }
                                     name="passwordConfirmation"
-                                    label="Confirm password"
+                                    label={t('confirm_password')}
                                     type="password"
                                 />
                             </Stack>
                             <Typography sx={{ textAlign: "right", mt: 2 }}>
                                 <Button variant="outlined" type="submit">
-                                    Register
+                                    {t('register')}
                                 </Button>
                                 {notification.isVisible && notification.severity === "success" && (
                                     <Button variant="outlined" type="button" sx={{ ml: 2 }} onClick={handleAdditionalAction}>
-                                        Login
+                                        {t('register')}
                                     </Button>
                                 )}
                             </Typography>

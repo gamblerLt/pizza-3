@@ -3,12 +3,13 @@ import { Button, CircularProgress, Grid, Typography, Paper, ImageListItem, Input
 import { useParams } from "react-router-dom";
 import { getPizzaById, updatePizza, deletePizza } from "../api/pizzaApi";
 import DeletePizza from "../DeletePizza";
-//import {useTranslation} from "react-i18next";
+import {useTranslation} from "react-i18next";
+
 
 
 const PizzaDetailPage = (props) => {
-    //vertimas
-   //  const {t} useTranslation();
+
+    const {t} = useTranslation('pizzadetailpage');
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
     const [pizza, setPizza] = useState({});
@@ -95,7 +96,8 @@ const PizzaDetailPage = (props) => {
                                 <Grid item>
                                     <Grid container spacing={1} alignItems="center">
                                         <Grid item xs={2}>
-                                            <b>Size:</b>
+                                            <b>{t('size')}</b>
+
                                         </Grid>
                                         <Grid item xs={10}>
                                             {editableFields.size ?
@@ -112,7 +114,7 @@ const PizzaDetailPage = (props) => {
                                 <Grid item>
                                     <Grid container spacing={1} alignItems="center">
                                         <Grid item xs={2}>
-                                            <b>Description:</b>
+                                            <b>{t('description')}</b>
                                         </Grid>
                                         <Grid item xs={10}>
                                             {editableFields.description ?
@@ -129,7 +131,7 @@ const PizzaDetailPage = (props) => {
                                 <Grid item>
                                     <Grid container spacing={1} alignItems="center">
                                         <Grid item xs={2}>
-                                            <b>Price:</b>
+                                            <b>{t('price')}</b>
                                         </Grid>
                                         <Grid item xs={10}>
                                             {editableFields.price ?
@@ -148,8 +150,8 @@ const PizzaDetailPage = (props) => {
                         <Grid item xs={12}>
                             <Button variant="outlined" onClick={handleUpdate}>
                                 {Object.values(editableFields).some((editable) => editable)
-                                    ? "Save Changes"
-                                    : "Update Pizza"}
+                                    ? t('save')
+                                    : t('update')}
                             </Button>
                         </Grid>
                         <Grid item xs={9}>
