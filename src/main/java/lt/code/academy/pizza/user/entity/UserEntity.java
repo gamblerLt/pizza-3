@@ -1,12 +1,14 @@
-package lt.code.academy.pizza.pizzas.entity;
+package lt.code.academy.pizza.user.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lt.code.academy.pizza.pizzas.dto.User;
+import lt.code.academy.pizza.user.dto.User;
 
+
+import java.util.Set;
 import java.util.UUID;
 
 @Setter
@@ -38,6 +40,10 @@ public class UserEntity {
     @Column(nullable = false, length = 255)
     private String password;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<RoleEntity> roles;
+
     public static UserEntity convert(User user) {
         return new UserEntity(
                 user.getId(),
@@ -46,6 +52,7 @@ public class UserEntity {
                 user.getAddress(),
                 user.getEmail(),
                 user.getPassword()
+                //Set.of(new RoleEntity(UUID.fromString("b26cb831-9427-41ee-adcc-271f7b02d611"), "USER")));
         );
     }
 }

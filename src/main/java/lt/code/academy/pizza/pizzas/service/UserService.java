@@ -1,5 +1,6 @@
 package lt.code.academy.pizza.pizzas.service;
 
+
 import lt.code.academy.pizza.pizzas.dto.User;
 import lt.code.academy.pizza.pizzas.entity.UserEntity;
 import lt.code.academy.pizza.pizzas.exception.UserNotExistRuntimeException;
@@ -44,6 +45,8 @@ public class UserService {
         userRepository.deleteById(id);
     }
 }
+
+
 
   /*  public List<UserRegistration> search(String text)
        return userRep...
