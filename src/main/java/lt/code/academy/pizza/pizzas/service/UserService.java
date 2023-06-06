@@ -1,3 +1,4 @@
+/*
 package lt.code.academy.pizza.pizzas.service;
 
 
@@ -48,12 +49,15 @@ public class UserService {
 
 
 
-  /*  public List<UserRegistration> search(String text)
+  */
+/*  public List<UserRegistration> search(String text)
        return userRep...
 
     {
             .stream()
             .map(Pizza::convert)
             .toList();
-    }*/
+    }*//*
 
+
+*/

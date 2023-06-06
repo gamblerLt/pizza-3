@@ -1,3 +1,4 @@
+/*
 package lt.code.academy.pizza.pizzas.exception;
 
 import lombok.Getter;
@@ -9,3 +10,4 @@ import java.util.UUID;
 public class UserNotExistRuntimeException extends RuntimeException{
     private final UUID id;
 }
+*/

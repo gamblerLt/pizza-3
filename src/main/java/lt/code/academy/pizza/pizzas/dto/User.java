@@ -1,3 +1,4 @@
+/*
 package lt.code.academy.pizza.pizzas.dto;
 
 import jakarta.validation.constraints.NotBlank;
@@ -43,3 +44,4 @@ public class User {
     }
 
 }
+*/

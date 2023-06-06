@@ -14,4 +14,6 @@ public interface Endpoint {
     String ORDER = "/{"+ orderId +"}";
     String USER = "/{"+ userId +"}";
     String SEARCH = "/search";
+
+    String LOGIN = "/login";
 }

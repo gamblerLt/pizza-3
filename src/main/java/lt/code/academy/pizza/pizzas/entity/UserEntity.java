@@ -1,3 +1,4 @@
+/*
 package lt.code.academy.pizza.pizzas.entity;
 
 import jakarta.persistence.*;
@@ -48,4 +49,4 @@ public class UserEntity {
                 user.getPassword()
         );
     }
-}
+}*/

@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lt.code.academy.pizza.user.dto.User;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 import java.util.Set;
@@ -26,7 +28,7 @@ public class UserEntity {
     private UUID id;
 
     @Column(nullable = false, length = 255)
-    private String name;
+    private String username;
 
     @Column(nullable = false, length = 20)
     private String phone;
@@ -40,19 +42,24 @@ public class UserEntity {
     @Column(nullable = false, length = 255)
     private String password;
 
+    @Column(nullable = false, length = 50)
+    private String role;
+
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+
     private Set<RoleEntity> roles;
 
+
     public static UserEntity convert(User user) {
+        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
         return new UserEntity(
                 user.getId(),
-                user.getName(),
+                user.getUsername(),
                 user.getPhone(),
                 user.getAddress(),
                 user.getEmail(),
-                user.getPassword()
-                //Set.of(new RoleEntity(UUID.fromString("b26cb831-9427-41ee-adcc-271f7b02d611"), "USER")));
-        );
+                user.getPassword(),
+                encoder.encode(user.getPassword()),
+                Set.of(new RoleEntity(UUID.fromString("id"), "USER")));
     }
 }

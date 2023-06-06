@@ -1,3 +1,4 @@
+/*
 package lt.code.academy.pizza.pizzas.repository;
 
 
@@ -8,4 +9,4 @@ import java.util.UUID;
 
 public interface UserRepository extends JpaRepository<UserEntity, UUID> {
 
-}
+}*/

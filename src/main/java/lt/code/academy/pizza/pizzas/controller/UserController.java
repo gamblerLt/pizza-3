@@ -1,3 +1,4 @@
+/*
 package lt.code.academy.pizza.pizzas.controller;
 
 
@@ -47,3 +48,4 @@ public class UserController {
         userService.deleteUser(id);
     }
 }
+*/
