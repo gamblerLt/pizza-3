@@ -1,3 +1,4 @@
+/*
 package lt.code.academy.pizza.pizzas.controller;
 
 import lt.code.academy.pizza.pizzas.dto.Order;
@@ -43,3 +44,4 @@ public class OrderController {
         orderService.deleteOrder(id);
     }
 }
+*/

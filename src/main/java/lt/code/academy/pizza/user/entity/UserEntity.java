@@ -47,6 +47,7 @@ public class UserEntity {
 
     @ManyToMany(fetch = FetchType.EAGER)
 
+
     private Set<RoleEntity> roles;
 
 
