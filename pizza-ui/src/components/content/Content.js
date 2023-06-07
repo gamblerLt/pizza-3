@@ -30,6 +30,7 @@ const Content = () => {
                     <Route path="/users/registration" element={<UserRegistration/>}/>
                     <Route path="/pizzas/:id/update" element={<Pizza key="update"/>}/>
                     <Route path="/pizzas/:id" element={<PizzaDetailPage/>}/>
+                    <Route path="/login" element={<UserLogin/>}/>
                    {/* <Route path="/cart" element={<Cart/>}/>*/}
 
 

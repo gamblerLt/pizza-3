@@ -1,3 +1,16 @@
+const UserLogin = () => {
+
+    return (
+        <>
+            THIS IS LOGIN FORM
+        </>
+    );
+}
+
+export default UserLogin;
+
+
+/*
 import React from "react";
 import {Form, Formik} from "formik";
 import * as Yup from "yup";
@@ -59,4 +72,4 @@ return (
 
 )
 };
-export default UserLogin;
+export default UserLogin;*/
