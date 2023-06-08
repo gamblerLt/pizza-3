@@ -7,3 +7,9 @@ const getUserById = (id) => {
 const createUser = (user) => {
     return HTTP.put(`/user`, user);
 };
+
+export {
+    login,
+    getUserById,
+    createUser
+}

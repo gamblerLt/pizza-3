@@ -1,4 +1,4 @@
-import cart, {loadProductsFromLocalStorage, subscribeToStore} from "./slices/cartSlice";
+//import cart, {loadProductsFromLocalStorage, subscribeToStore} from "./slices/cartSlice";
 import {logger} from "redux-logger/src";
 import {configureStore} from "@reduxjs/toolkit";
 import user from './slices/userSlice';
@@ -10,14 +10,14 @@ const createNewStore = () => {
               //  cart,
                 user
             },
-            middleware: getDefaultMiddleware => getDefaultMiddleware().concat(logger),
+           /* middleware: getDefaultMiddleware => getDefaultMiddleware().concat(logger),
             preloadedState :{
-                cart: loadProductsFromLocalStorage()
-            }
+                cart: loadProductsFromLocalStorage()*/
+          //  }
         }
     );
 
-    subscribeToStore(store);
+   // subscribeToStore(store);
 
     return store;
 }
