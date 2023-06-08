@@ -1,10 +1,9 @@
 import HTTP from "./index";
 
-const createUser = (user) => HTTP.post('/users', user);
-const getUserById = (id) => HTTP.get(`/users/${id}`);
-
-export {
-    createUser,
-    getUserById
-}
-
+const login = (data) => HTTP.post('/login', data);
+const getUserById = (id) => {
+    return HTTP.get(`/users/${id}`);
+};
+const createUser = (user) => {
+    return HTTP.put(`/user`, user);
+};

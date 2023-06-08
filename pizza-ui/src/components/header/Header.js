@@ -72,6 +72,12 @@ const Header = () => {
              {/*   <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
                     Login
                 </Button>*/}
+                <Button variant="outlined"
+                        sx={{my: 1, mx: 1.5}}
+                        component={NavLink}
+                        to="/login">
+                    Login
+                </Button>
             </Toolbar>
         </AppBar>
     );

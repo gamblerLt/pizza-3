@@ -20,6 +20,11 @@ public class Role implements GrantedAuthority
         return ROLE_PREFIX + name;
     }
 
+    public String getName()
+    {
+        return name;
+    }
+
     public static Role convert(RoleEntity entity)
     {
         return new Role(entity.getId(), entity.getName());
