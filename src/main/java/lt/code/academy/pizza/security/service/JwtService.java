@@ -1,4 +1,5 @@
 package lt.code.academy.pizza.security.service;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtParser;
@@ -9,16 +10,13 @@ import io.jsonwebtoken.security.Keys;
 import lt.code.academy.pizza.security.exception.InvalidTokenException;
 import lt.code.academy.pizza.security.exception.ExpiredTokenException;
 import lt.code.academy.pizza.user.dto.User;
-import lt.code.academy.pizza.user.dto.Role;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
 import java.util.Date;
-import java.util.List;
 
 @Service
 public class JwtService {
@@ -41,9 +39,6 @@ public class JwtService {
                 .setIssuedAt(date)
                 .setExpiration(new Date(date.getTime() + tokenValidMs))
                 .setSubject(user.getUsername())
-                //.claim("roles", user.getRoles().stream().map(Role::getAuthority).toList())
-                .claim("roles", user.getRoles().stream().map(Role::convert).map(Role::getAuthority).toList())
-
                 .signWith(Keys.hmacShaKeyFor(secretKey), SignatureAlgorithm.HS512)
                 .compact();
     }
@@ -60,13 +55,13 @@ public class JwtService {
             validateToken(body);
 
             String userName = body.getSubject();
-            List<SimpleGrantedAuthority> roles = ((List<String>) body.get("roles")).stream().map(SimpleGrantedAuthority::new).toList();
+            // List<SimpleGrantedAuthority> roles = ((List<String>) body.get("roles")).stream().map(SimpleGrantedAuthority::new).toList();
 
-            return new UsernamePasswordAuthenticationToken(userName, null, roles);
+            return new UsernamePasswordAuthenticationToken(userName, null);
 
-        } catch(ExpiredTokenException e) {
+        } catch (ExpiredTokenException e) {
             throw e;
-        } catch(Exception e) {
+        } catch (Exception e) {
             throw new InvalidTokenException();
         }
     }
@@ -74,13 +69,9 @@ public class JwtService {
     private void validateToken(Claims claims) {
         Date expirationDate = claims.getExpiration();
 
-        if(expirationDate.before(new Date())) {
+        if (expirationDate.before(new Date())) {
             throw new ExpiredTokenException();
         }
     }
 
-    private String generateSecretKey() {
-        SecretKey secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS512);
-        return Encoders.BASE64.encode(secretKey.getEncoded());
-    }
 }

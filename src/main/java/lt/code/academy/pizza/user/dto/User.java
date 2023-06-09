@@ -2,12 +2,10 @@ package lt.code.academy.pizza.user.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lt.code.academy.pizza.user.entity.RoleEntity;
 import lt.code.academy.pizza.user.entity.UserEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -42,26 +40,22 @@ public class User implements UserDetails {
     @NotBlank
     private String password;
 
-    private Set<RoleEntity> roles;
-
     public static User convert(UserEntity userEntity) {
-        Set<RoleEntity> roles = userEntity.getRoles();
+
         return new User(
                 userEntity.getId(),
                 userEntity.getUsername(),
                 userEntity.getPhone(),
                 userEntity.getAddress(),
                 userEntity.getEmail(),
-                userEntity.getPassword(),
-                roles
+                userEntity.getPassword()
+
         );
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return roles.stream()
-                .map(role -> new SimpleGrantedAuthority("ROLE_" + role.getName()))
-                .collect(Collectors.toList());
+        return null;
     }
 
     @Override
@@ -88,11 +82,6 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-
-    /*public String getFullName()
-	{
-		return String.format("%s %s", name, surname);
-	}*/
 
 
 }

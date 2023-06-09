@@ -9,8 +9,6 @@ import lt.code.academy.pizza.user.dto.User;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-
-import java.util.Set;
 import java.util.UUID;
 
 @Setter
@@ -20,7 +18,6 @@ import java.util.UUID;
 @Entity
 @Table(name = "users")
 public class UserEntity {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -42,14 +39,6 @@ public class UserEntity {
     @Column(nullable = false, length = 255)
     private String password;
 
-    @Column(nullable = false, length = 50)
-    private String role;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-
-
-    private Set<RoleEntity> roles;
-
 
     public static UserEntity convert(User user) {
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
@@ -59,8 +48,7 @@ public class UserEntity {
                 user.getPhone(),
                 user.getAddress(),
                 user.getEmail(),
-                user.getPassword(),
-                encoder.encode(user.getPassword()),
-                Set.of(new RoleEntity(UUID.fromString("id"), "USER")));
+                encoder.encode(user.getPassword())
+        );
     }
 }

@@ -1,6 +1,5 @@
 package lt.code.academy.pizza.user;
 
-
 import lt.code.academy.pizza.user.dto.User;
 import lt.code.academy.pizza.user.entity.UserEntity;
 import lt.code.academy.pizza.user.repository.UserRepository;
@@ -16,9 +15,12 @@ public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
+
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
+
     }
+
 
     public void createUser(User user) {
         userRepository.save(UserEntity.convert(user));
@@ -31,5 +33,6 @@ public class UserService implements UserDetailsService {
 
         return (UserDetails) User.convert(userEntity);
     }
+
 }
 
