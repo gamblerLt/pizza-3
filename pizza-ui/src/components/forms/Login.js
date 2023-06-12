@@ -14,7 +14,7 @@ import {useNavigate} from "react-router-dom";
 
 const loginValidationSchema = Yup.object().shape(
     {
-        username: Yup.string().required(),
+        name: Yup.string().required(),
         password: Yup.string().required()
     }
 );
@@ -47,7 +47,7 @@ const Login = () => {
     return (
 
         <Formik
-            initialValues={ {username: '', password: ''} }
+            initialValues={ {name: '', password: ''} }
 
             onSubmit={ onLogin }
 
@@ -74,9 +74,9 @@ const Login = () => {
                             <Box noValidate sx={ {mt: 1} }>
                                 { showError && <Alert severity="error">Login failed, please check your credentials and try again</Alert> }
                                 <Form>
-                                    <FormTextInput error={ props.touched.username && !!props.errors.username }
-                                                   name="username"
-                                                   label="Username"
+                                    <FormTextInput error={ props.touched.name && !!props.errors.name }
+                                                   name="name"
+                                                   label="name"
                                                    fullWidth
                                                    margin="normal"/>
                                     <FormTextInput error={ props.touched.password && !!props.errors.password }

@@ -38,9 +38,9 @@ const Header = () => {
 
                     <MenuItem path="/" name={t("pizzas")} />
                     <MenuItem path="/pizzas/create" name={t("create.pizza")} />
-                    <MenuItem path="/orders" name={t("orders")} />
+                  {/*  <MenuItem path="/orders" name={t("orders")} />*/}
                     <MenuItem path="/users/registration" name={t("create.user")} />
-                    <MenuItem path="/users/login" name={t("login")} />
+                   {/* <MenuItem path="/users/login" name={t("login")} />*/}
 
                     {/*<Link variant="button" color="text.primary" href="#" sx={{ my: 1, mx: 1.5 }}>
                         Our Pizzas

@@ -25,7 +25,7 @@ public class UserEntity {
     private UUID id;
 
     @Column(nullable = false, length = 255)
-    private String username;
+    private String name;
 
     @Column(nullable = false, length = 20)
     private String phone;
@@ -44,7 +44,7 @@ public class UserEntity {
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
         return new UserEntity(
                 user.getId(),
-                user.getUsername(),
+                user.getName(),
                 user.getPhone(),
                 user.getAddress(),
                 user.getEmail(),

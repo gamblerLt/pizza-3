@@ -1,7 +1,7 @@
 import {FormControl, FormHelperText, TextField} from "@mui/material";
 import {ErrorMessage, Field} from "formik";
 
-const FormTextInput = ({error, name, label = 'Type something here', ...props}) => (
+const FormTextInput = ({error, name, label = 'Kazkas', ...props}) => (
     <FormControl error={error}
                  fullWidth>
         <Field id={name}

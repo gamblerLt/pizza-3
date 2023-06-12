@@ -44,7 +44,7 @@ public class User implements UserDetails {
 
         return new User(
                 userEntity.getId(),
-                userEntity.getUsername(),
+                userEntity.getName(),
                 userEntity.getPhone(),
                 userEntity.getAddress(),
                 userEntity.getEmail(),

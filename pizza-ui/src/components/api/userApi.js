@@ -5,7 +5,7 @@ const getUserById = (id) => {
     return HTTP.get(`/users/${id}`);
 };
 const createUser = (user) => {
-    return HTTP.put(`/user`, user);
+    return HTTP.post(`/users`, user);
 };
 
 export {
