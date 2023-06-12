@@ -1,4 +1,4 @@
 package lt.code.academy.pizza.security.data;
 
-public record Login(String username, String password) {
+public record Login(String name, String password) {
 }

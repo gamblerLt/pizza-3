@@ -4,10 +4,13 @@ import { useParams } from "react-router-dom";
 import { getPizzaById, updatePizza, deletePizza } from "../api/pizzaApi";
 import DeletePizza from "../DeletePizza";
 import {useTranslation} from "react-i18next";
+//import { useSelector } from "react-redux";
 
 
 
 const PizzaDetailPage = (props) => {
+
+   // const user = useSelector((state) => state.user);
 
     const {t} = useTranslation('pizzadetailpage');
     const { id } = useParams();

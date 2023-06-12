@@ -6,11 +6,11 @@ import lt.code.academy.pizza.user.dto.User;
 @Getter
 public class LoginUser {
 
-    private final String username;
+    private final String name;
 
 
     public LoginUser(User user) {
-        username = user.getUsername();
+        name = user.getName();
 
     }
 }

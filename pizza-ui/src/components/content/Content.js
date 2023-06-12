@@ -31,7 +31,7 @@ const Content = () => {
                     <Route path="/pizzas/:id" element={<PizzaDetailPage/>}/>
                    {/* <Route path="/login" element={<UserLogin/>}/>*/}
                    {/* <Route path="/cart" element={<Cart/>}/>*/}
-
+Rimas123
 
                 </Routes>
             </Container>

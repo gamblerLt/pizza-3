@@ -38,7 +38,7 @@ public class JwtService {
                 .setIssuer("src")
                 .setIssuedAt(date)
                 .setExpiration(new Date(date.getTime() + tokenValidMs))
-                .setSubject(user.getUsername())
+                .setSubject(user.getName())
                 .signWith(Keys.hmacShaKeyFor(secretKey), SignatureAlgorithm.HS512)
                 .compact();
     }
@@ -55,7 +55,6 @@ public class JwtService {
             validateToken(body);
 
             String userName = body.getSubject();
-            // List<SimpleGrantedAuthority> roles = ((List<String>) body.get("roles")).stream().map(SimpleGrantedAuthority::new).toList();
 
             return new UsernamePasswordAuthenticationToken(userName, null);
 
