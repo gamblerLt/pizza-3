@@ -1,7 +1,7 @@
 import {NavLink} from "react-router-dom";
 import {Link} from "@mui/material";
 //petras
-const Rms = ({path, name}) => (
+const MenuItem = ({path, name}) => (
     <Link
         variant="button"
         color="text.primary"
@@ -12,4 +12,4 @@ const Rms = ({path, name}) => (
     </Link>
 )
 
-export default Rms;
+export default MenuItem;
