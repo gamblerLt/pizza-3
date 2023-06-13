@@ -11,7 +11,7 @@ import {
     Typography
 } from "@mui/material";
 import {NavLink} from "react-router-dom";
-import MenuItem from "./MenuItem";
+import Rms from "./Rms";
 import logo from "./img/pizza-logo-long.png";
 import {useTranslation} from "react-i18next";
 import LanguageSwitcher from "../switcher/LanguageSwitcher";
@@ -24,7 +24,7 @@ import {Logout, Settings} from "@mui/icons-material";
 const Header = () => {
 
 
-   // const user = useSelector(state => state.user.user);
+    // const user = useSelector(state => state.user.user);
     const user = useSelector(state => state.user);
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
@@ -63,95 +63,96 @@ const Header = () => {
                     </Link>
                 </Typography>
                 <nav>
-                    <MenuItem path="/" name={t("pizzas")}/>
-                    <MenuItem path="/pizzas/create" name={t("create.pizza")}/>
-                    <MenuItem path="/users/registration" name={t("create.user")}/>
+                    <Rms path="/" name={t("pizzas")}/>
+                    <Rms path="/pizzas/create" name={t("create.pizza")}/>
+                    <Rms path="/users/registration" name={t("create.user")}/>
                 </nav>
 
-               {user ?
-                        <>
-                            <Tooltip title="Account">
-                                <IconButton onClick={handleClick} size="small" sx={{mx: 2}}
-                                            aria-controls={open ? 'account-menu' : undefined}
-                                            aria-haspopup="true"
-                                            aria-expanded={open ? 'true' : undefined}>
-                                    <Avatar sx={{width: 32, height: 32}}></Avatar>
-                                </IconButton>
-                            </Tooltip>
-                            <Menu
-                                anchorEl={anchorEl}
-                                id="account-menu"
-                                open={open}
-                                onClose={handleClose}
-                                onClick={handleClose}
-                                PaperProps={{
-                                    elevation: 0,
-                                    sx: {
-                                        overflow: 'visible',
-                                        filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-                                        mt: 1.5,
-                                        '& .MuiAvatar-root': {
-                                            width: 32,
-                                            height: 32,
-                                            ml: -0.5,
-                                            mr: 1,
-                                        },
-                                        '&:before': {
-                                            content: '""',
-                                            display: 'block',
-                                            position: 'absolute',
-                                            top: 0,
-                                            right: 14,
-                                            width: 10,
-                                            height: 10,
-                                            bgcolor: 'background.paper',
-                                            transform: 'translateY(-50%) rotate(45deg)',
-                                            zIndex: 0,
-                                        },
+                {user ?
+                    <>
+                        <Tooltip title="Account">
+                            <IconButton onClick={handleClick} size="small" sx={{mx: 2}}
+                                        aria-controls={open ? 'account-menu' : undefined}
+                                        aria-haspopup="true"
+                                        aria-expanded={open ? 'true' : undefined}>
+                                <Avatar sx={{width: 32, height: 32}}></Avatar>
+                            </IconButton>
+                        </Tooltip>
+                        <Menu
+                            anchorEl={anchorEl}
+                            id="account-menu"
+                            open={open}
+                            onClose={handleClose}
+                            onClick={handleClose}
+                            PaperProps={{
+                                elevation: 0,
+                                sx: {
+                                    overflow: 'visible',
+                                    filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+                                    mt: 1.5,
+                                    '& .MuiAvatar-root': {
+                                        width: 32,
+                                        height: 32,
+                                        ml: -0.5,
+                                        mr: 1,
                                     },
-                                }}
-                                transformOrigin={{horizontal: 'right', vertical: 'top'}}
-                                anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}>
-                                <MenuItem>
-                                    <Avatar/> {user.fullName}
-                                </MenuItem>
-                                <Divider/>
-                                {/*<MenuItem onClick={handleClose}>
+                                    '&:before': {
+                                        content: '""',
+                                        display: 'block',
+                                        position: 'absolute',
+                                        top: 0,
+                                        right: 14,
+                                        width: 10,
+                                        height: 10,
+                                        bgcolor: 'background.paper',
+                                        transform: 'translateY(-50%) rotate(45deg)',
+                                        zIndex: 0,
+                                    },
+                                },
+                            }}
+                            transformOrigin={{horizontal: 'right', vertical: 'top'}}
+                            anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}>
+                            <Rms>
+                                <Avatar/>
+
+                            </Rms>
+                            <Divider/>
+                            {/*<Rms onClick={handleClose}>
                                     <ListItemIcon>
                                         <Settings fontSize="small"/>
                                     </ListItemIcon>
                                     Settings
-                                </MenuItem>
-                                <MenuItem onClick={onLogout}>
+                                </Rms>
+                                <Rms onClick={onLogout}>
                                     <ListItemIcon>
                                         <Logout fontSize="small"/>
                                     </ListItemIcon>
                                     Logout
-                                </MenuItem>*/}
-                                <MenuItem onClick={handleClose}>
-                                    <ListItemIcon>
-                                        <Settings fontSize="small" onClick={(event) => event.stopPropagation()} />
-                                    </ListItemIcon>
-                                    Settings
-                                </MenuItem>
-                                <MenuItem onClick={onLogout}>
-                                    <ListItemIcon>
-                                        <Logout fontSize="small" onClick={(event) => event.stopPropagation()} />
-                                    </ListItemIcon>
-                                    Logout
-                                </MenuItem>
-                            </Menu>
-                        </>
-                        :
+                                </Rms>*/}
+                            <Rms onClick={handleClose}>
+                                <ListItemIcon>
+                                    <Settings fontSize="small" onClick={(event) => event.stopPropagation()} />
+                                </ListItemIcon>
+                                Settings
+                            </Rms>
+                            <Rms onClick={onLogout}>
+                                <ListItemIcon>
+                                    <Logout fontSize="small" onClick={(event) => event.stopPropagation()} />
+                                </ListItemIcon>
+                                Logout
+                            </Rms>
+                        </Menu>
+                    </>
+                    :
 
-                   <Button
-                       variant="outlined"
-                       sx={{ my: 1, mx: 1.5 }}
-                       component={NavLink}
-                       to="users/login"
-                   >
-                       Login
-                   </Button>
+                    <Button
+                        variant="outlined"
+                        sx={{ my: 1, mx: 1.5 }}
+                        component={NavLink}
+                        to="users/login"
+                    >
+                        Login
+                    </Button>
                 }
                 <LanguageSwitcher/>
 
