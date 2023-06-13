@@ -12,20 +12,6 @@ const userSlice = createSlice(
         initialState,
 
 
-        /*addUser(state, action) {
-    const { user } = action.payload;
-    addToLocalStorage('user', user);
-    state.user = user;
-    return state;
-
-},
-
-addUser(state, action) {
-    const { user } = action.payload;
-    addToLocalStorage('user', user);
-
-    return user;
-*/
         reducers: {
             addUser(state, {payload: user}) {
                 addToLocalStorage('user', user);
