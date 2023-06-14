@@ -28,19 +28,10 @@ public class PizzaController {
     public Pizza getPizza(@PathVariable(pizzaId) UUID id) {
         return pizzaService.getPizza(id);
     }
-    //@PreAuthorize("hasRole('ADMIN')")
 
 
-    /*
-    * @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    @PreAuthorize("isAuthenticated()")  // Check if the user is authenticated
-    @ResponseStatus(HttpStatus.CREATED)
-    public void createPizza(@RequestBody Pizza pizza) {
-        pizzaService.createPizza(pizza);
-    }*/
 
 
-    //@PreAuthorize("hasAuthority('CREATE_PIZZA')")
 
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
