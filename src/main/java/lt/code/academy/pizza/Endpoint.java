@@ -10,4 +10,6 @@ public interface Endpoint {
     String SEARCH = "/search";
     String LOGIN = "/login";
     String USERS = "/users";
+
+    String LOGOUT = "/logout";
 }

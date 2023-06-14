@@ -43,6 +43,7 @@
     "user_logout": "Atsijungti",
     "username": "Vartotojo vardas",
     "email": "El. paštas",
-    "password": "Slaptažodis"
+    "password": "Slaptažodis",
+    "user_logged_in": "Prisijungęs "
   }
 }

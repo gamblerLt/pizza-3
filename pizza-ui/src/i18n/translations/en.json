@@ -43,6 +43,7 @@
     "user_logout": "User logout",
     "username": "Username",
     "email": "Email",
-    "password": "Password"
+    "password": "Password",
+    "user_logged_in": "Logged in as "
   }
 }

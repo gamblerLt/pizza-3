@@ -29,25 +29,40 @@ public class PizzaController {
         return pizzaService.getPizza(id);
     }
     //@PreAuthorize("hasRole('ADMIN')")
+
+
+    /*
+    * @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PreAuthorize("isAuthenticated()")  // Check if the user is authenticated
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createPizza(@RequestBody Pizza pizza) {
+        pizzaService.createPizza(pizza);
+    }*/
+
+
+    //@PreAuthorize("hasAuthority('CREATE_PIZZA')")
+
+
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PreAuthorize("isAuthenticated()")
     @ResponseStatus(HttpStatus.CREATED)
     public void createPizza(@RequestBody Pizza pizza) {
         pizzaService.createPizza(pizza);
     }
-    //@PreAuthorize("hasRole('ADMIN')")
+
     @PutMapping(value = PIZZA, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void updatePizza(@RequestBody Pizza pizza, @PathVariable(pizzaId) UUID id) {
         pizza.setId(id);
         pizzaService.updatePizza(pizza);
     }
-   // @PreAuthorize("hasRole('ADMIN')")
+
     @DeleteMapping(PIZZA)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletePizza(@PathVariable(pizzaId) UUID id) {
         pizzaService.deletePizza(id);
     }
-   // @PreAuthorize("hasRole('ADMIN')")
+
     @GetMapping(value = SEARCH, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Pizza> search(@RequestParam String query) {
         return pizzaService.search(query);
