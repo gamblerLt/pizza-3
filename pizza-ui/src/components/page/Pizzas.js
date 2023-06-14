@@ -80,10 +80,6 @@ const Pizzas = () => {
 
     return (
         <>
-            {
-                loading ?
-                <CircularProgress />
-            :
                 <GridContainer>
                     {pizzas.map((pizza) => (
                         <Paper key={pizza.id}>
@@ -113,8 +109,7 @@ const Pizzas = () => {
                         </Paper>
                     ))}
                 </GridContainer>
-            }
-        </>
+            </>
     );
 };
 

@@ -27,7 +27,7 @@ const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const onLogin = (values, helpers) => {
+   /* const onLogin = (values, helpers) => {
         login(values)
             .then(({data, headers}) => {
                     dispatch(addUser({
@@ -42,7 +42,24 @@ const Login = () => {
                 setShowError(true);
             })
             .finally(() => helpers.setSubmitting(false));
-    }
+    }*/
+    const onLogin = (values, helpers) => {
+        login(values)
+            .then(({ data, headers }) => {
+                dispatch(
+                    addUser({
+                        user: data,
+                        jwtToken: headers.authorization,
+                    })
+                );
+                navigate('/');
+            })
+            .catch((error) => {
+                console.log(error);
+                setShowError(true);
+            })
+            .finally(() => helpers.setSubmitting(false));
+    };
 
     return (
 
@@ -65,14 +82,15 @@ const Login = () => {
                                 alignItems: 'center',
                             } }
                         >
-                            <Avatar sx={ {m: 1, bgcolor: 'secondary.main'} }>
+                          {/*  <Avatar sx={ {m: 1, bgcolor: 'secondary.main'} }>
                                 <LockOutlinedIcon/>
-                            </Avatar>
-                            <Typography component="h1" variant="h5">
+                            </Avatar>*/}
+                           {/* <Typography component="h1" variant="h5">
                                 Sign in
-                            </Typography>
+                            </Typography>*/}
+
+                               {/* { showError && <Alert severity="error">Login failed, please check your credentials and try again</Alert> }*/}
                             <Box noValidate sx={ {mt: 1} }>
-                                { showError && <Alert severity="error">Login failed, please check your credentials and try again</Alert> }
                                 <Form>
                                     <FormTextInput error={ props.touched.name && !!props.errors.name }
                                                    name="name"

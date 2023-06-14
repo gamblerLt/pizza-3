@@ -1,22 +1,22 @@
 {
-  "pizzadetailpage" : {
-    "size" : "Dydis",
+  "pizzadetailpage": {
+    "size": "Dydis",
     "description": "Aprašymas",
-    "price" : "Kaina",
+    "price": "Kaina",
     "save": "Išsaugoti",
     "update": "Atnaujinti"
   },
-  "header" : {
-    "pizzas" : "Picos",
-    "create" : {
-      "pizza" : "Sukurti picą",
-      "user" : "Registracija"
+  "header": {
+    "pizzas": "Picos",
+    "create": {
+      "pizza": "Sukurti picą",
+      "user": "Registracija"
     },
-    "login" : "Prisijungti",
+    "login": "Prisijungti",
     "orders": "Užsakymai"
   },
-  "create" : {
-    "create" : "Sukurti picą",
+  "create": {
+    "create": "Sukurti picą",
     "title": "Picos pavadinimas",
     "size": "Picos dydis",
     "description": "Picos aprašymas",
@@ -27,22 +27,22 @@
     "button_create": "Sukurti"
   },
   "registration": {
-  "register": "Registracija",
-  "name": "Vardas",
-  "phone": "Telefono numeris, pvz. +370...",
-  "address": "Adresas",
-  "email": "El. paštas",
-  "password": "Slaptažodis",
-  "confirm_password":"Slaptažodžio patvirtinimas",
+    "register": "Registracija",
+    "name": "Vardas",
+    "phone": "Telefono numeris, pvz. +370...",
+    "address": "Adresas",
+    "email": "El. paštas",
+    "password": "Slaptažodis",
+    "confirm_password": "Slaptažodžio patvirtinimas",
     "registration_ok": "Sėkmingai prisiregistruota",
     "registration_not_ok": "Registracija nepavyko",
     "login": "prisijungti"
-},
+  },
   "login": {
-  "user_login": "Vartotojo prisijungimas",
-  "username":"Vartotojo vardas",
-  "email":"El. paštas",
-  "password":"Slaptažodis"
-}
-
+    "user_login": "Prisijungti",
+    "user_logout": "Atsijungti",
+    "username": "Vartotojo vardas",
+    "email": "El. paštas",
+    "password": "Slaptažodis"
+  }
 }

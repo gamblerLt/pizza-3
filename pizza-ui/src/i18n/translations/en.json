@@ -1,23 +1,22 @@
 {
-  "pizzadetailpage" : {
-   "size" : "Size:",
+  "pizzadetailpage": {
+    "size": "Size:",
     "description": "Description:",
-    "price" : "Price:",
+    "price": "Price:",
     "save": "Save",
     "update": "Update"
   },
-  "header" : {
-    "pizzas" : "Pizzas",
-    "create" : {
-      "pizza" : "Create pizza",
-      "user" : "Registration"
+  "header": {
+    "pizzas": "Pizzas",
+    "create": {
+      "pizza": "Create pizza",
+      "user": "Registration"
     },
-    "login" : "Login",
+    "login": "Login",
     "orders": "Orders"
-
   },
-  "create" : {
-    "create" : "Create pizza",
+  "create": {
+    "create": "Create pizza",
     "title": "Pizza title",
     "size": "Pizza size",
     "description": "Pizza description",
@@ -29,22 +28,21 @@
   },
   "registration": {
     "register": "Registration",
-    "name":"Name",
-    "phone":"Phone number, eg. +370...",
-    "address":"Address",
+    "name": "Name",
+    "phone": "Phone number, eg. +370...",
+    "address": "Address",
     "email": "Email",
     "password": "Password",
-    "confirm_password":"Confirm password",
+    "confirm_password": "Confirm password",
     "registration_ok": "Registration was successful",
     "registration_not_ok": "Registration was not successful",
     "login": "Login"
   },
-
   "login": {
-  "user_login": "User login",
-  "username":"Username",
-  "email":"Email",
-  "password":"Password"
-}
-
+    "user_login": "User login",
+    "user_logout": "User logout",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password"
+  }
 }
