@@ -1,15 +1,13 @@
 import {Form, Formik} from "formik";
 import * as Yup from 'yup';
-import {Alert, Avatar, Box, Button, Checkbox, CircularProgress, Container, createTheme, CssBaseline, FormControlLabel, Grid, Link, Typography} from "@mui/material";
+import {Box, Button, Checkbox, CircularProgress, Container, createTheme, CssBaseline, FormControlLabel, Grid, Link} from "@mui/material";
 import {ThemeProvider} from "@emotion/react";
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import FormTextInput from "./FormTextInput";
 import {login} from "../api/userApi";
 import {useState} from "react";
 import {useDispatch} from "react-redux";
 import {addUser} from "../../store/slices/userSlice";
 import {useNavigate} from "react-router-dom";
-
 
 
 const loginValidationSchema = Yup.object().shape(
@@ -27,22 +25,6 @@ const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-   /* const onLogin = (values, helpers) => {
-        login(values)
-            .then(({data, headers}) => {
-                    dispatch(addUser({
-                        user: data,
-                        jwtToken: headers.authorization
-                    }));
-                    navigate('/');
-                }
-            )
-            .catch((error) => {
-                console.log(error);
-                setShowError(true);
-            })
-            .finally(() => helpers.setSubmitting(false));
-    }*/
     const onLogin = (values, helpers) => {
         login(values)
             .then(({ data, headers }) => {
@@ -82,14 +64,7 @@ const Login = () => {
                                 alignItems: 'center',
                             } }
                         >
-                          {/*  <Avatar sx={ {m: 1, bgcolor: 'secondary.main'} }>
-                                <LockOutlinedIcon/>
-                            </Avatar>*/}
-                           {/* <Typography component="h1" variant="h5">
-                                Sign in
-                            </Typography>*/}
 
-                               {/* { showError && <Alert severity="error">Login failed, please check your credentials and try again</Alert> }*/}
                             <Box noValidate sx={ {mt: 1} }>
                                 <Form>
                                     <FormTextInput error={ props.touched.name && !!props.errors.name }

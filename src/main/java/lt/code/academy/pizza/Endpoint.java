@@ -2,7 +2,7 @@ package lt.code.academy.pizza;
 
 
 public interface Endpoint {
-    //variable
+
     String pizzaId = "pizzaId";
 
     String PIZZAS = "/pizzas";
@@ -10,6 +10,7 @@ public interface Endpoint {
     String SEARCH = "/search";
     String LOGIN = "/login";
     String USERS = "/users";
+    
 
     String LOGOUT = "/logout";
 }

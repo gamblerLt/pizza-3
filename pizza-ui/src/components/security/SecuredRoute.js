@@ -2,11 +2,12 @@
 import {useSelector} from "react-redux";
 import {Navigate, Outlet} from "react-router-dom";
 
-const SecuredRoute = ({roles}) => {
+const SecuredRoute = ({isLoggedIn}) => {
     const user = useSelector(state => state.user.user);
-    const allowAccess = roles ? user?.roles.some(r => roles.includes(r)) : user;
+    const allowAccess = isLoggedIn.some(isLi => isLoggedIn.includes(isLi)) : user;
 
     return allowAccess ? <Outlet/> : <Navigate to="/login"/>
 }
 
-export default SecuredRoute;*/
+export default SecuredRoute;
+*/

@@ -1,6 +1,6 @@
 import {NavLink} from "react-router-dom";
 import {Link} from "@mui/material";
-//petras
+
 const PizzaMenuItem = ({path, name}) => (
     <Link
         variant="button"
