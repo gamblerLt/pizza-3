@@ -10,7 +10,6 @@ import {useTranslation} from "react-i18next";
 
 const PizzaDetailPage = (props) => {
 
-   // const user = useSelector((state) => state.user);
 
     const {t} = useTranslation('pizzadetailpage');
     const { id } = useParams();

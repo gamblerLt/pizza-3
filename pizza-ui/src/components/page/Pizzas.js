@@ -16,6 +16,7 @@ import styled from "@emotion/styled";
 import { NavLink} from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import DeletePizza from "../DeletePizza";
+import {useSelector} from "react-redux";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -60,8 +61,7 @@ const StyledImage = styled.img`
 
 const Pizzas = () => {
     const navigate = useNavigate();
-
-
+    const user = useSelector(store => store.user.user);
     const [loading, setLoading] = useState(true);
     const [pizzas, setPizzas] = useState([]);
 
@@ -96,9 +96,11 @@ const Pizzas = () => {
                             <StyledTableCell>{`${pizza.price} €`}</StyledTableCell>
 
                             <StyledTableCell align="right">
+                                {user && (
                                 <DeletePizza key={pizza.id}
                                                id={pizza.id}
                                                removePizza={removePizza}/>
+                                )}
                             </StyledTableCell>
                             <StyledTableRow>
 

@@ -10,4 +10,5 @@ const SecuredRoute = ({isLoggedIn}) => {
 }
 
 export default SecuredRoute;
+
 */

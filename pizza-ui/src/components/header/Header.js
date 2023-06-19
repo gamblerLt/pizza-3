@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "../switcher/LanguageSwitcher";
 import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../../store/slices/userSlice";
-import {getFromLocalStorage} from "../../storage/localStorage";
+
 
 const Header = () => {
     const user = useSelector((state) => state.user.user);
